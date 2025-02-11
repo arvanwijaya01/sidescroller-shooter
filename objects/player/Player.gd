@@ -21,13 +21,23 @@ func _physics_process(_delta):
 	move_vec.y += 10
 	var target_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if abs(int(target_dir + skeleton.scale.x)) == 2:
-		move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
-		if animation_player.current_animation != "WalkForward":
-			animation_player.play("WalkForward")
+		if !Input.is_action_pressed("run"):
+			move_vec.x = clamp(move_vec.x + target_dir * 15, -138, 138)
+			if animation_player.current_animation != "RunForward":
+				animation_player.play("RunForward")
+		else:
+			move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
+			if animation_player.current_animation != "WalkForward":
+				animation_player.play("WalkForward")
 	elif abs(int(target_dir + skeleton.scale.x)) == 0:
-		move_vec.x = clamp(move_vec.x + target_dir * 15, -40, 40)
-		if animation_player.current_animation != "WalkBackward":
-			animation_player.play("WalkBackward")
+		if !Input.is_action_pressed("run"):
+			move_vec.x = clamp(move_vec.x + target_dir * 15, -90, 90)
+			if animation_player.current_animation != "RunBackward":
+				animation_player.play("RunBackward")
+		else:
+			move_vec.x = clamp(move_vec.x + target_dir * 15, -40, 40)
+			if animation_player.current_animation != "WalkBackward":
+				animation_player.play("WalkBackward")
 	else:
 		if animation_player.current_animation != "Idle":
 			animation_player.play("Idle")

@@ -1273,4 +1273,4 @@ anims/RunBackward = SubResource( 14 )
 anims/RunForward = SubResource( 13 )
 anims/WalkBackward = SubResource( 11 )
 anims/WalkForward = SubResource( 9 )
-blend_times = [ "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "WalkBackward", 0.2 ]
+blend_times = [ "Idle", "RunBackward", 0.2, "Idle", "RunForward", 0.2, "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "RunBackward", "Idle", 0.2, "RunBackward", "RunForward", 0.2, "RunBackward", "WalkBackward", 0.2, "RunBackward", "WalkForward", 0.2, "RunForward", "Idle", 0.2, "RunForward", "RunBackward", 0.2, "RunForward", "WalkBackward", 0.2, "RunForward", "WalkForward", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "RunBackward", 0.2, "WalkBackward", "RunForward", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "RunBackward", 0.2, "WalkForward", "RunForward", 0.2, "WalkForward", "WalkBackward", 0.2 ]
