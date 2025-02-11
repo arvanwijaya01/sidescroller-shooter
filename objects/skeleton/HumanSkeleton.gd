@@ -1,24 +1,28 @@
 extends Node2D
 
-var aiming_is_active = false
+var aiming_is_active = false setget set_aiming_is_active
 onready var front_hand = $Torso/FrontArmNode/FrontArm/LowerArm/Hand
 onready var back_hand = $Torso/BackArmNode/BackArm/LowerArm/Hand
 onready var head_node = $Torso/HeadNode
 onready var back_arm_node = $Torso/BackArmNode
 onready var front_arm_node = $Torso/FrontArmNode
+onready var torso = $Torso
+onready var tween = $Tween
 
 func _physics_process(_delta):
 	if aiming_is_active:
-		head_node.rotation = head_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0)
-		back_arm_node.rotation = back_arm_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0)
-		front_arm_node.rotation = front_arm_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0)
-		head_node.rotation -= $Torso.rotation
-		back_arm_node.rotation -= $Torso.rotation
-		front_arm_node.rotation -= $Torso.rotation
+		var arm_target_rotation = front_arm_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0) - torso.rotation
+		var head_target_rotation = head_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0) - torso.rotation
+		head_node.rotation = lerp_angle(head_node.rotation, head_target_rotation, 0.5)
+		back_arm_node.rotation = lerp_angle(back_arm_node.rotation, arm_target_rotation, 0.5)
+		front_arm_node.rotation = lerp_angle(front_arm_node.rotation, arm_target_rotation, 0.5)
 	else:
-		head_node.rotation = 0
-		back_arm_node.rotation = 0
-		front_arm_node.rotation = 0
+		head_node.rotation = lerp_angle(head_node.rotation, 0.0, 0.5)
+		back_arm_node.rotation = lerp_angle(back_arm_node.rotation, 0.0, 0.5)
+		front_arm_node.rotation = lerp_angle(front_arm_node.rotation, 0.0, 0.5)
+
+func set_aiming_is_active(is_active : bool):
+	aiming_is_active = is_active
 
 func attach_to_front_arm(obj:Node2D):
 	obj.global_position = front_hand.global_position

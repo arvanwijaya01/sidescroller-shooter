@@ -28,6 +28,7 @@ func _physics_process(_delta):
 	if equipped == Equip.Pistol:
 		skeleton.attach_to_front_arm(pistol)
 	if Input.is_action_just_pressed("unequip") and equipped != Equip.None:
+		arm_animation_player.play("Idle")
 		equipped = Equip.None
 		pistol.visible = false
 	if Input.is_action_just_pressed("equip_pistol") and equipped != Equip.Pistol:
@@ -37,16 +38,18 @@ func _physics_process(_delta):
 	# Use gun
 	match equipped:
 		Equip.Pistol:
-			if Input.is_action_pressed("aim"):
+			if Input.is_action_pressed("aim") and arm_animation_player.current_animation != "PistolReload":
 				arm_animation_player.play("PistolAim")
 				skeleton.aiming_is_active = true
 				if Input.is_action_just_pressed("shoot"):
 					pistol.shoot()
 			else:
-				arm_animation_player.play("PistolIdle")
+				if arm_animation_player.current_animation != "PistolReload":
+					arm_animation_player.play("PistolIdle")
 				skeleton.aiming_is_active = false
 			if Input.is_action_just_pressed("reload"):
 				pistol.reload()
+				arm_animation_player.play("PistolReload")
 	# Movement
 	move_vec = move_and_slide(move_vec, Vector2.UP)
 	move_vec.y += 10
@@ -59,8 +62,6 @@ func _physics_process(_delta):
 				match equipped:
 					Equip.None:
 						arm_animation_player.play("RunForward")
-					Equip.Pistol:
-						arm_animation_player.play("PistolIdle")
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
 			if animation_player.current_animation != "WalkForward" and is_on_floor():
@@ -68,8 +69,6 @@ func _physics_process(_delta):
 				match equipped:
 					Equip.None:
 						arm_animation_player.play("WalkForward")
-					Equip.Pistol:
-						arm_animation_player.play("PistolIdle")
 	elif abs(int(target_dir + skeleton.scale.x)) == 0:
 		if !Input.is_action_pressed("run"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -90, 90)
@@ -78,8 +77,6 @@ func _physics_process(_delta):
 				match equipped:
 					Equip.None:
 						arm_animation_player.play("RunBackward")
-					Equip.Pistol:
-						arm_animation_player.play("PistolIdle")
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -40, 40)
 			if animation_player.current_animation != "WalkBackward" and is_on_floor():
@@ -87,24 +84,18 @@ func _physics_process(_delta):
 				match equipped:
 					Equip.None:
 						arm_animation_player.play("WalkBackward")
-					Equip.Pistol:
-						arm_animation_player.play("PistolIdle")
 	else:
 		if animation_player.current_animation != "Idle" and is_on_floor():
 			animation_player.play("Idle")
 			match equipped:
 				Equip.None:
 					arm_animation_player.play("Idle")
-				Equip.Pistol:
-					arm_animation_player.play("PistolIdle")
 	if !is_on_floor():
 		if animation_player.current_animation != "Jump":
 			animation_player.play("Jump")
 			match equipped:
 				Equip.None:
 					arm_animation_player.play("Jump")
-				Equip.Pistol:
-					arm_animation_player.play("PistolIdle")
 	if target_dir == 0:
 		move_vec.x = lerp(move_vec.x, 0, 0.2)
 	if Input.is_action_just_pressed("jump") and is_on_floor():
