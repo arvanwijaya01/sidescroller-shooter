@@ -23,26 +23,29 @@ func _physics_process(_delta):
 	if abs(int(target_dir + skeleton.scale.x)) == 2:
 		if !Input.is_action_pressed("run"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -138, 138)
-			if animation_player.current_animation != "RunForward":
+			if animation_player.current_animation != "RunForward" and is_on_floor():
 				animation_player.play("RunForward")
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
-			if animation_player.current_animation != "WalkForward":
+			if animation_player.current_animation != "WalkForward" and is_on_floor():
 				animation_player.play("WalkForward")
 	elif abs(int(target_dir + skeleton.scale.x)) == 0:
 		if !Input.is_action_pressed("run"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -90, 90)
-			if animation_player.current_animation != "RunBackward":
+			if animation_player.current_animation != "RunBackward" and is_on_floor():
 				animation_player.play("RunBackward")
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -40, 40)
-			if animation_player.current_animation != "WalkBackward":
+			if animation_player.current_animation != "WalkBackward" and is_on_floor():
 				animation_player.play("WalkBackward")
 	else:
-		if animation_player.current_animation != "Idle":
+		if animation_player.current_animation != "Idle" and is_on_floor():
 			animation_player.play("Idle")
+	if !is_on_floor():
+		if animation_player.current_animation != "Jump":
+			animation_player.play("Jump")
 	if target_dir == 0:
 		move_vec.x = lerp(move_vec.x, 0, 0.2)
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		move_vec.y = -512
+		move_vec.y = -275
 	
