@@ -163,22 +163,25 @@ tracks/2/keys = {
 }
 
 [node name="Pistol" type="Node2D"]
+show_behind_parent = true
+z_index = 2
+z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="Magazine" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( 6, -5 )
+offset = Vector2( 7, -5 )
 vframes = 3
 frame = 2
 
 [node name="Base" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( 6, -5 )
+offset = Vector2( 7, -5 )
 vframes = 3
 
 [node name="Top" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( 6, -5 )
+offset = Vector2( 7, -5 )
 vframes = 3
 frame = 1
 
