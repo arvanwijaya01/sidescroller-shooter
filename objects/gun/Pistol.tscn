@@ -66,6 +66,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("RayCast2D/Node/Line2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Reload"
@@ -161,6 +173,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("RayCast2D/Node/Line2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Pistol" type="Node2D"]
 show_behind_parent = true
@@ -184,6 +208,21 @@ texture = ExtResource( 1 )
 offset = Vector2( 7, -5 )
 vframes = 3
 frame = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 18, -7 )
+enabled = true
+cast_to = Vector2( 1000, 0 )
+
+[node name="Node" type="Node" parent="RayCast2D"]
+
+[node name="Line2D" type="Line2D" parent="RayCast2D/Node"]
+visible = false
+position = Vector2( 18, -7 )
+points = PoolVector2Array( 0, 0, 1000, 0 )
+width = 1.0
+default_color = Color( 1, 1, 1, 1 )
+end_cap_mode = 2
 
 [node name="MuzzleFlash" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )

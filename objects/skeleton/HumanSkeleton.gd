@@ -11,11 +11,15 @@ onready var tween = $Tween
 
 func _physics_process(_delta):
 	if aiming_is_active:
-		var arm_target_rotation = front_arm_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0) - torso.rotation
+		var arm_target_rotation = front_arm_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0)
+		arm_target_rotation = get_global_mouse_position().angle_to_point(front_arm_node.global_position + (Vector2(0.0, -7.0)).rotated(scale.x * arm_target_rotation))
+		arm_target_rotation = arm_target_rotation if scale.x > 0 else deg2rad(180.0) - arm_target_rotation
+		arm_target_rotation -= torso.rotation
 		var head_target_rotation = head_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0) - torso.rotation
 		head_node.rotation = lerp_angle(head_node.rotation, head_target_rotation, 0.5)
 		back_arm_node.rotation = lerp_angle(back_arm_node.rotation, arm_target_rotation, 0.5)
 		front_arm_node.rotation = lerp_angle(front_arm_node.rotation, arm_target_rotation, 0.5)
+		# 21 + 18 = 39 , -7
 	else:
 		head_node.rotation = lerp_angle(head_node.rotation, 0.0, 0.5)
 		back_arm_node.rotation = lerp_angle(back_arm_node.rotation, 0.0, 0.5)
