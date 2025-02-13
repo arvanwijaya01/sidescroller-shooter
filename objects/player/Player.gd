@@ -48,7 +48,10 @@ func _physics_process(_delta):
 					pistol.shoot()
 			else:
 				if arm_animation_player.current_animation != "PistolReload":
-					arm_animation_player.play("PistolIdle")
+					if is_crouching:
+						arm_animation_player.play("PistolIdleCrouch")
+					else:
+						arm_animation_player.play("PistolIdle")
 				skeleton.aiming_is_active = false
 			if Input.is_action_just_pressed("reload"):
 				if pistol.reload():
@@ -100,7 +103,7 @@ func movement():
 	else:
 		if is_crouching:
 			move_vec.x = lerp(move_vec.x, 0, 0.2)
-			return "Idle"
+			return "IdleCrouch"
 		else:
 			move_vec.x = lerp(move_vec.x, 0, 0.2)
 			return "Idle"

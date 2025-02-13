@@ -238,6 +238,7 @@ z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="Magazine" type="Sprite" parent="."]
+z_index = -1
 texture = ExtResource( 1 )
 offset = Vector2( 7, -5 )
 vframes = 3
