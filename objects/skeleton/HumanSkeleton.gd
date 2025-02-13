@@ -8,6 +8,7 @@ onready var back_arm_node = $Torso/BackArmNode
 onready var front_arm_node = $Torso/FrontArmNode
 onready var torso = $Torso
 onready var tween = $Tween
+onready var footstep_audio = $FootstepAudio
 
 func _physics_process(_delta):
 	if aiming_is_active:
@@ -24,6 +25,10 @@ func _physics_process(_delta):
 		head_node.rotation = lerp_angle(head_node.rotation, 0.0, 0.5)
 		back_arm_node.rotation = lerp_angle(back_arm_node.rotation, 0.0, 0.5)
 		front_arm_node.rotation = lerp_angle(front_arm_node.rotation, 0.0, 0.5)
+
+func play_footstep_audio():
+	footstep_audio.pitch_scale = rand_range(1.8, 2.2)
+	footstep_audio.play(0.0)
 
 func set_aiming_is_active(is_active : bool):
 	aiming_is_active = is_active

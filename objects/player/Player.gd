@@ -48,8 +48,8 @@ func _physics_process(_delta):
 					arm_animation_player.play("PistolIdle")
 				skeleton.aiming_is_active = false
 			if Input.is_action_just_pressed("reload"):
-				pistol.reload()
-				arm_animation_player.play("PistolReload")
+				if pistol.reload():
+					arm_animation_player.play("PistolReload")
 	# Movement
 	move_vec = move_and_slide(move_vec, Vector2.UP)
 	move_vec.y += 10
@@ -58,6 +58,8 @@ func _physics_process(_delta):
 		if !Input.is_action_pressed("run"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -138, 138)
 			if animation_player.current_animation != "RunForward" and is_on_floor():
+				if animation_player.current_animation == "Jump":
+					skeleton.play_footstep_audio()
 				animation_player.play("RunForward")
 				match equipped:
 					Equip.None:
@@ -65,6 +67,8 @@ func _physics_process(_delta):
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
 			if animation_player.current_animation != "WalkForward" and is_on_floor():
+				if animation_player.current_animation == "Jump":
+					skeleton.play_footstep_audio()
 				animation_player.play("WalkForward")
 				match equipped:
 					Equip.None:
@@ -73,6 +77,8 @@ func _physics_process(_delta):
 		if !Input.is_action_pressed("run"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -90, 90)
 			if animation_player.current_animation != "RunBackward" and is_on_floor():
+				if animation_player.current_animation == "Jump":
+					skeleton.play_footstep_audio()
 				animation_player.play("RunBackward")
 				match equipped:
 					Equip.None:
@@ -80,12 +86,16 @@ func _physics_process(_delta):
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -40, 40)
 			if animation_player.current_animation != "WalkBackward" and is_on_floor():
+				if animation_player.current_animation == "Jump":
+					skeleton.play_footstep_audio()
 				animation_player.play("WalkBackward")
 				match equipped:
 					Equip.None:
 						arm_animation_player.play("WalkBackward")
 	else:
 		if animation_player.current_animation != "Idle" and is_on_floor():
+			if animation_player.current_animation == "Jump":
+					skeleton.play_footstep_audio()
 			animation_player.play("Idle")
 			match equipped:
 				Equip.None:

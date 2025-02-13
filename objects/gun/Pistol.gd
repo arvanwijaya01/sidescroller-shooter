@@ -28,6 +28,8 @@ func shoot():
 func reload():
 	if !animation_player.is_playing() and ammo_in_magazine < 15:
 		animation_player.play("Reload")
+		return true
+	return false
 
 func reload_finished():
 	ammo_in_magazine = 15
