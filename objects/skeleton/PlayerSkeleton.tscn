@@ -290,7 +290,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -29.9718, -29.9718 ]
+"values": [ -29.9718, -28.0 ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
@@ -302,7 +302,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 43.4204, 43.4204 ]
+"values": [ 43.4204, 41.1032 ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
@@ -314,7 +314,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 55.1826, 55.1826 ]
+"values": [ 55.1826, 56.0 ]
 }
 
 [sub_resource type="Animation" id=15]
