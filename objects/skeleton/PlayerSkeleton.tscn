@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://objects/skeleton/HumanSkeleton.gd" type="Script" id=1]
 [ext_resource path="res://sprites/skeleton/skeleton.png" type="Texture" id=2]
@@ -6,19 +6,7 @@
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 48 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 48, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 80, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 112, 32, 16 )
+region = Rect2( 64, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
@@ -32,6 +20,26 @@ region = Rect2( 0, 64, 32, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 96, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 48, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 80, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 112, 32, 16 )
+
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
@@ -40,7 +48,7 @@ region = Rect2( 0, 0, 32, 32 )
 resource_name = "Idle"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/BackLeg/LowerLeg:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -52,7 +60,7 @@ tracks/0/keys = {
 "values": [ 0.0, 28.0862 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/BackLeg:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -64,7 +72,7 @@ tracks/1/keys = {
 "values": [ 18.692, 6.95203 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -76,7 +84,7 @@ tracks/2/keys = {
 "values": [ -18.496, -34.8422 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -88,7 +96,7 @@ tracks/3/keys = {
 "values": [ 23.6405, 40.1931 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/FrontLeg:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -100,7 +108,7 @@ tracks/4/keys = {
 "values": [ -15.3955, -22.6342 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -112,7 +120,7 @@ tracks/5/keys = {
 "values": [ -8.3877, -17.7017 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Torso:rotation_degrees")
+tracks/6/path = NodePath("BottomTorso:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -124,7 +132,7 @@ tracks/6/keys = {
 "values": [ 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Torso:position")
+tracks/7/path = NodePath("BottomTorso:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -136,7 +144,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 1 ), Vector2( 0, 2 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Torso/HeadNode/Head:rotation_degrees")
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -147,12 +155,172 @@ tracks/8/keys = {
 "update": 0,
 "values": [ 0.0, 2.0 ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "IdleCrouch"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 28.0862 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 18.692, 6.95203 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -18.496, -34.8422 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 23.6405, 40.1931 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.3955, -22.6342 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -8.3877, -17.7017 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BottomTorso:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("BottomTorso:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 2 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_name = "Jump"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/BackLeg/LowerLeg:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -164,7 +332,7 @@ tracks/0/keys = {
 "values": [ 114.807, 109.587 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/BackLeg:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -176,7 +344,7 @@ tracks/1/keys = {
 "values": [ -40.3652, -43.7689 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -188,7 +356,7 @@ tracks/2/keys = {
 "values": [ 37.6542 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -200,7 +368,7 @@ tracks/3/keys = {
 "values": [ 22.9308, 19.4757 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/FrontLeg:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -212,7 +380,7 @@ tracks/4/keys = {
 "values": [ -6.1865, -16.1989 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -224,7 +392,7 @@ tracks/5/keys = {
 "values": [ 17.1537 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Torso:rotation_degrees")
+tracks/6/path = NodePath("BottomTorso:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -236,7 +404,7 @@ tracks/6/keys = {
 "values": [ 0.0, 6.77636 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Torso:position")
+tracks/7/path = NodePath("BottomTorso:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -248,7 +416,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Torso/HeadNode/Head:rotation_degrees")
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -259,11 +427,35 @@ tracks/8/keys = {
 "update": 0,
 "values": [ 12.2, 14.0 ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/BackLeg/LowerLeg:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -275,7 +467,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/BackLeg:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -287,7 +479,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -299,7 +491,7 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -311,7 +503,7 @@ tracks/3/keys = {
 "values": [ 0.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/FrontLeg:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -323,7 +515,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -335,7 +527,7 @@ tracks/5/keys = {
 "values": [ 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Torso:rotation_degrees")
+tracks/6/path = NodePath("BottomTorso:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -347,7 +539,7 @@ tracks/6/keys = {
 "values": [ 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Torso:position")
+tracks/7/path = NodePath("BottomTorso:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -359,12 +551,36 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Torso/HeadNode/Head:rotation_degrees")
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -377,7 +593,7 @@ length = 0.8
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso:position")
+tracks/0/path = NodePath("BottomTorso:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -389,7 +605,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 1.2 ), Vector2( 0, 0.5 ), Vector2( -4.47035e-08, 4 ), Vector2( -2.23517e-08, 2.5 ), Vector2( 0, 2 ), Vector2( 7.10543e-15, 0.999999 ), Vector2( 0, 0 ), Vector2( 0, 0.5 ), Vector2( 0, 1.2 ), Vector2( 0, 0.5 ), Vector2( -4.47035e-08, 4 ), Vector2( -2.23517e-08, 2.5 ), Vector2( 0, 2 ), Vector2( 7.10543e-15, 0.999999 ), Vector2( 0, 0 ), Vector2( 0, 0.5 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -401,7 +617,7 @@ tracks/1/keys = {
 "values": [ -15.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -413,7 +629,7 @@ tracks/2/keys = {
 "values": [ 80.0, 44.0, 0.0, 0.0, 0.0, 60.0, 70.0, 80.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/FrontLeg:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -425,7 +641,7 @@ tracks/3/keys = {
 "values": [ -22.0, 20.0, 40.0, 22.0, 0.0, -50.0, -40.0, -30.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -437,7 +653,7 @@ tracks/4/keys = {
 "values": [ 28.0, -48.0, -25.0, -7.0, 15.0, 0.0, 0.0, 10.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackLeg/LowerLeg:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -449,7 +665,7 @@ tracks/5/keys = {
 "values": [ 0.0, 60.0, 70.0, 80.0, 80.0, 44.0, 0.0, 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Torso/BackLeg:rotation_degrees")
+tracks/6/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -461,7 +677,7 @@ tracks/6/keys = {
 "values": [ 0.0, -50.0, -40.0, -30.0, -22.0, 20.0, 40.0, 22.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Torso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/7/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -473,7 +689,7 @@ tracks/7/keys = {
 "values": [ 15.0, 0.0, 0.0, 10.0, 28.0, -48.0, -25.0, -7.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Torso/HeadNode/Head:rotation_degrees")
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -501,6 +717,30 @@ tracks/9/keys = {
 "method": "play_footstep_audio"
 } ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "RunForward"
@@ -508,7 +748,7 @@ length = 0.8
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/BackLeg/LowerLeg:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -520,7 +760,7 @@ tracks/0/keys = {
 "values": [ 115.0, 85.0, 57.5, 0.0, 46.25, 10.0, 30.0, 100.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/BackLeg:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -532,7 +772,7 @@ tracks/1/keys = {
 "values": [ -32.5, -80.0, -80.0, -55.0, -47.5, 0.0, 17.5, 20.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -544,7 +784,7 @@ tracks/2/keys = {
 "values": [ 0.0, 20.0, 0.0, 0.0, -14.0, 0.0, 15.0, 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -556,7 +796,7 @@ tracks/3/keys = {
 "values": [ 46.2729, 10.0, 30.0, 100.0, 115.0, 85.0, 57.5, 0.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/FrontLeg:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -568,7 +808,7 @@ tracks/4/keys = {
 "values": [ -47.5, 0.0, 17.5, 20.0, -32.5, -80.0, -80.0, -55.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -580,7 +820,7 @@ tracks/5/keys = {
 "values": [ -14.0, 0.0, 15.0, 0.0, 0.0, 20.0, 0.0, 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Torso:rotation_degrees")
+tracks/6/path = NodePath("BottomTorso:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -592,7 +832,7 @@ tracks/6/keys = {
 "values": [ 15.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Torso:position")
+tracks/7/path = NodePath("BottomTorso:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -604,7 +844,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 3.5 ), Vector2( 0, 0.249999 ), Vector2( 0, -1 ), Vector2( 0, 0.5 ), Vector2( 0, 2 ), Vector2( 0, 5 ), Vector2( 0, 8 ), Vector2( 0, 4.75 ), Vector2( 0, 3.5 ), Vector2( 0, 0.249999 ), Vector2( 0, -1 ), Vector2( 0, 0.5 ), Vector2( 0, 2 ), Vector2( 0, 5 ), Vector2( 0, 8 ), Vector2( 0, 4.75 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Torso/HeadNode/Head:rotation_degrees")
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -632,6 +872,30 @@ tracks/9/keys = {
 "method": "play_footstep_audio"
 } ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "WalkBackward"
@@ -639,7 +903,7 @@ length = 1.6
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso:position")
+tracks/0/path = NodePath("BottomTorso:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -651,7 +915,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0.5 ), Vector2( 0, 1.5 ), Vector2( -4.47035e-08, 5 ), Vector2( -2.23517e-08, 3.5 ), Vector2( 0, 3 ), Vector2( 7.10543e-15, 0.999999 ), Vector2( 0, 0 ), Vector2( 0, -0.5 ), Vector2( 0, 0.5 ), Vector2( 0, 1.5 ), Vector2( -4.47035e-08, 5 ), Vector2( -2.23517e-08, 3.5 ), Vector2( 0, 3 ), Vector2( 7.10543e-15, 0.999999 ), Vector2( 0, 0 ), Vector2( 0, -0.5 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -663,7 +927,7 @@ tracks/1/keys = {
 "values": [ -10.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -675,7 +939,7 @@ tracks/2/keys = {
 "values": [ 80.0, 44.0, 0.0, 0.0, 0.0, 60.0, 70.0, 80.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/FrontLeg:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -687,7 +951,7 @@ tracks/3/keys = {
 "values": [ -22.0, 20.0, 40.0, 22.0, 0.0, -50.0, -40.0, -30.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -699,7 +963,7 @@ tracks/4/keys = {
 "values": [ 28.0, -53.5, -30.5, -12.0, 10.0, 0.0, 0.0, 10.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackLeg/LowerLeg:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -711,7 +975,7 @@ tracks/5/keys = {
 "values": [ 0.0, 60.0, 70.0, 80.0, 80.0, 44.0, 0.0, 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Torso/BackLeg:rotation_degrees")
+tracks/6/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -723,7 +987,7 @@ tracks/6/keys = {
 "values": [ 0.0, -50.0, -40.0, -30.0, -22.0, 20.0, 40.0, 22.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Torso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/7/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -735,7 +999,7 @@ tracks/7/keys = {
 "values": [ 10.0, 0.0, 0.0, 10.0, 28.0, -53.5, -30.5, -12.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Torso/HeadNode/Head:rotation_degrees")
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -763,13 +1027,37 @@ tracks/9/keys = {
 "method": "play_footstep_audio"
 } ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "WalkForward"
 length = 1.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso:position")
+tracks/0/path = NodePath("BottomTorso:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -781,7 +1069,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0.5 ), Vector2( 0, -0.5 ), Vector2( 0, 0 ), Vector2( 7.10543e-15, 0.999999 ), Vector2( 0, 3 ), Vector2( -2.23517e-08, 3.5 ), Vector2( -4.47035e-08, 5 ), Vector2( 0, 1.5 ), Vector2( 0, 0.5 ), Vector2( 0, -0.5 ), Vector2( 0, 0 ), Vector2( 7.10543e-15, 0.999999 ), Vector2( 0, 3 ), Vector2( -2.23517e-08, 3.5 ), Vector2( -4.47035e-08, 5 ), Vector2( 0, 1.5 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -793,7 +1081,7 @@ tracks/1/keys = {
 "values": [ 10.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -805,7 +1093,7 @@ tracks/2/keys = {
 "values": [ 0.0, 0.0, 0.0, 44.0, 80.0, 80.0, 0.0, 60.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/FrontLeg:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -817,7 +1105,7 @@ tracks/3/keys = {
 "values": [ 0.0, 22.0, 40.0, 20.0, -22.0, -40.0, -40.0, -50.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -829,7 +1117,7 @@ tracks/4/keys = {
 "values": [ -10.0, 0.0, 0.0, 0.0, 28.0, 10.0, 0.0, -20.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackLeg/LowerLeg:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -841,7 +1129,7 @@ tracks/5/keys = {
 "values": [ 80.0, 80.0, 0.0, 60.0, 0.0, 0.0, 0.0, 44.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Torso/BackLeg:rotation_degrees")
+tracks/6/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -853,7 +1141,7 @@ tracks/6/keys = {
 "values": [ -22.0, -40.0, -40.0, -50.0, 0.0, 22.0, 40.0, 20.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Torso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/7/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -865,7 +1153,7 @@ tracks/7/keys = {
 "values": [ 28.0, 10.0, 0.0, -20.0, -10.0, 0.0, 0.0, 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Torso/HeadNode/Head:rotation_degrees")
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -893,12 +1181,36 @@ tracks/9/keys = {
 "method": "play_footstep_audio"
 } ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "Idle"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -910,7 +1222,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -922,7 +1234,7 @@ tracks/1/keys = {
 "values": [ -27.5794, -31.9708 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -934,7 +1246,7 @@ tracks/2/keys = {
 "values": [ 14.5256, 16.2124 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -946,7 +1258,7 @@ tracks/3/keys = {
 "values": [ 0.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -958,7 +1270,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -974,7 +1286,7 @@ tracks/5/keys = {
 resource_name = "Jump"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -986,7 +1298,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -998,7 +1310,7 @@ tracks/1/keys = {
 "values": [ -61.7896, -71.5294 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1010,7 +1322,7 @@ tracks/2/keys = {
 "values": [ 38.6057, 49.614 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1022,7 +1334,7 @@ tracks/3/keys = {
 "values": [ 0.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1034,7 +1346,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1051,7 +1363,7 @@ resource_name = "PistolAim"
 length = 0.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1063,7 +1375,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1075,7 +1387,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1087,7 +1399,7 @@ tracks/2/keys = {
 "values": [ -90.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1099,7 +1411,7 @@ tracks/3/keys = {
 "values": [ -59.9737 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1111,7 +1423,7 @@ tracks/4/keys = {
 "values": [ -43.0736 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1127,7 +1439,7 @@ tracks/5/keys = {
 resource_name = "PistolIdle"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1139,7 +1451,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1151,7 +1463,7 @@ tracks/1/keys = {
 "values": [ -36.6734, -36.6734 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1163,7 +1475,7 @@ tracks/2/keys = {
 "values": [ -19.1302, -9.38655 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1175,7 +1487,7 @@ tracks/3/keys = {
 "values": [ -55.5236, -55.5236 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1187,7 +1499,7 @@ tracks/4/keys = {
 "values": [ 7.95574, 16.0858 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1202,7 +1514,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id=27]
 resource_name = "PistolReload"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1214,7 +1526,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1226,7 +1538,7 @@ tracks/1/keys = {
 "values": [ -77.02, -77.02, -77.02 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1238,7 +1550,7 @@ tracks/2/keys = {
 "values": [ -28.3027, -18.3, -28.3027 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1250,7 +1562,7 @@ tracks/3/keys = {
 "values": [ -16.241, -16.241, -82.4392, -94.4015, -126.003, -82.4392 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1262,7 +1574,7 @@ tracks/4/keys = {
 "values": [ -17.1964, -17.1964, 7.3, -24.726, 14.9334, 7.3 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1277,7 +1589,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id=18]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1289,7 +1601,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1301,7 +1613,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1313,7 +1625,7 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1325,7 +1637,7 @@ tracks/3/keys = {
 "values": [ 0.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1337,7 +1649,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1355,7 +1667,7 @@ length = 0.8
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1367,7 +1679,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1379,7 +1691,7 @@ tracks/1/keys = {
 "values": [ -50.0, -20.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1391,7 +1703,7 @@ tracks/2/keys = {
 "values": [ -20.0, 60.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1403,7 +1715,7 @@ tracks/3/keys = {
 "values": [ -20.0, -50.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1415,7 +1727,7 @@ tracks/4/keys = {
 "values": [ 60.0, -20.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1433,7 +1745,7 @@ length = 0.8
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1445,7 +1757,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1457,7 +1769,7 @@ tracks/1/keys = {
 "values": [ -30.0, 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1469,7 +1781,7 @@ tracks/2/keys = {
 "values": [ -45.0, 45.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1481,7 +1793,7 @@ tracks/3/keys = {
 "values": [ 0.0, -30.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1493,7 +1805,7 @@ tracks/4/keys = {
 "values": [ 45.0, -45.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1511,7 +1823,7 @@ length = 1.6
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1523,7 +1835,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1535,7 +1847,7 @@ tracks/1/keys = {
 "values": [ -50.0, -20.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1547,7 +1859,7 @@ tracks/2/keys = {
 "values": [ -30.0, 50.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1559,7 +1871,7 @@ tracks/3/keys = {
 "values": [ -20.0, -50.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1571,7 +1883,7 @@ tracks/4/keys = {
 "values": [ 50.0, -30.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1588,7 +1900,7 @@ resource_name = "WalkForward"
 length = 1.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1600,7 +1912,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1612,7 +1924,7 @@ tracks/1/keys = {
 "values": [ -30.0, 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1624,7 +1936,7 @@ tracks/2/keys = {
 "values": [ -45.0, 45.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1636,7 +1948,7 @@ tracks/3/keys = {
 "values": [ 0.0, -30.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1648,7 +1960,7 @@ tracks/4/keys = {
 "values": [ 45.0, -45.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1664,45 +1976,16 @@ tracks/5/keys = {
 position = Vector2( 0, -4 )
 script = ExtResource( 1 )
 
-[node name="Torso" type="Sprite" parent="."]
+[node name="BottomTorso" type="Sprite" parent="."]
 texture = SubResource( 1 )
+offset = Vector2( 0, -1 )
 __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="BackArmNode" type="Node2D" parent="Torso"]
-position = Vector2( 0, -9 )
-
-[node name="BackArm" type="Sprite" parent="Torso/BackArmNode"]
+[node name="BackLeg" type="Sprite" parent="BottomTorso"]
 show_behind_parent = true
-z_index = -2
-texture = SubResource( 7 )
-__meta__ = {
-"_edit_bone_": true,
-"_edit_ik_": true
-}
-
-[node name="LowerArm" type="Sprite" parent="Torso/BackArmNode/BackArm"]
-show_behind_parent = true
-position = Vector2( -1, 10 )
-texture = SubResource( 6 )
-offset = Vector2( 1, 6 )
-__meta__ = {
-"_edit_bone_": true
-}
-
-[node name="Hand" type="Sprite" parent="Torso/BackArmNode/BackArm/LowerArm"]
-show_behind_parent = true
-position = Vector2( 1, 11 )
-texture = SubResource( 8 )
-offset = Vector2( 0, 3 )
-__meta__ = {
-"_edit_bone_": true
-}
-
-[node name="BackLeg" type="Sprite" parent="Torso"]
-show_behind_parent = true
-position = Vector2( -1, 15 )
+position = Vector2( -1, 6 )
 z_index = -1
 texture = SubResource( 3 )
 offset = Vector2( 1, 9 )
@@ -1711,7 +1994,7 @@ __meta__ = {
 "_edit_ik_": true
 }
 
-[node name="LowerLeg" type="Sprite" parent="Torso/BackLeg"]
+[node name="LowerLeg" type="Sprite" parent="BottomTorso/BackLeg"]
 show_behind_parent = true
 position = Vector2( 1, 14 )
 texture = SubResource( 4 )
@@ -1720,7 +2003,7 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="Foot" type="Sprite" parent="Torso/BackLeg/LowerLeg"]
+[node name="Foot" type="Sprite" parent="BottomTorso/BackLeg/LowerLeg"]
 show_behind_parent = true
 position = Vector2( 0, 11 )
 texture = SubResource( 5 )
@@ -1728,18 +2011,8 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="HeadNode" type="Node2D" parent="Torso"]
-position = Vector2( 0, -14 )
-
-[node name="Head" type="Sprite" parent="Torso/HeadNode"]
-texture = SubResource( 2 )
-offset = Vector2( 0, -10 )
-__meta__ = {
-"_edit_bone_": true
-}
-
-[node name="FrontLeg" type="Sprite" parent="Torso"]
-position = Vector2( -1, 15 )
+[node name="FrontLeg" type="Sprite" parent="BottomTorso"]
+position = Vector2( -1, 6 )
 z_index = 1
 texture = SubResource( 3 )
 offset = Vector2( 1, 9 )
@@ -1748,7 +2021,7 @@ __meta__ = {
 "_edit_ik_": true
 }
 
-[node name="LowerLeg" type="Sprite" parent="Torso/FrontLeg"]
+[node name="LowerLeg" type="Sprite" parent="BottomTorso/FrontLeg"]
 show_behind_parent = true
 position = Vector2( 1, 14 )
 texture = SubResource( 4 )
@@ -1757,7 +2030,7 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="Foot" type="Sprite" parent="Torso/FrontLeg/LowerLeg"]
+[node name="Foot" type="Sprite" parent="BottomTorso/FrontLeg/LowerLeg"]
 show_behind_parent = true
 position = Vector2( 0, 11 )
 texture = SubResource( 5 )
@@ -1765,18 +2038,28 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="FrontArmNode" type="Node2D" parent="Torso"]
-position = Vector2( 0, -9 )
+[node name="MidTorso" type="Sprite" parent="BottomTorso"]
+position = Vector2( 0, -10.2815 )
+texture = SubResource( 29 )
+offset = Vector2( 0, 8 )
 
-[node name="FrontArm" type="Sprite" parent="Torso/FrontArmNode"]
-z_index = 2
+[node name="TopTorso" type="Sprite" parent="BottomTorso/MidTorso"]
+position = Vector2( 0, -7.71854 )
+texture = SubResource( 28 )
+
+[node name="BackArmNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -1 )
+
+[node name="BackArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode"]
+show_behind_parent = true
+z_index = -2
 texture = SubResource( 7 )
 __meta__ = {
 "_edit_bone_": true,
 "_edit_ik_": true
 }
 
-[node name="LowerArm" type="Sprite" parent="Torso/FrontArmNode/FrontArm"]
+[node name="LowerArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm"]
 show_behind_parent = true
 position = Vector2( -1, 10 )
 texture = SubResource( 6 )
@@ -1785,7 +2068,46 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="Hand" type="Sprite" parent="Torso/FrontArmNode/FrontArm/LowerArm"]
+[node name="Hand" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm"]
+show_behind_parent = true
+position = Vector2( 1, 11 )
+texture = SubResource( 8 )
+offset = Vector2( 0, 3 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="HeadNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -6 )
+
+[node name="Head" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/HeadNode"]
+texture = SubResource( 2 )
+offset = Vector2( 0, -10 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="FrontArmNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -1 )
+
+[node name="FrontArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode"]
+z_index = 2
+texture = SubResource( 7 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="LowerArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm"]
+show_behind_parent = true
+position = Vector2( -1, 10 )
+texture = SubResource( 6 )
+offset = Vector2( 1, 6 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Hand" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm"]
 show_behind_parent = true
 position = Vector2( 1, 11 )
 texture = SubResource( 8 )
@@ -1796,6 +2118,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 12 )
+anims/IdleCrouch = SubResource( 30 )
 anims/Jump = SubResource( 15 )
 anims/RESET = SubResource( 10 )
 anims/RunBackward = SubResource( 14 )

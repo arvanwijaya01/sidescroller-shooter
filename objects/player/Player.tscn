@@ -21,11 +21,11 @@ script = ExtResource( 1 )
 visible = false
 
 [node name="BottomCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 7 )
 shape = SubResource( 28 )
 
 [node name="TopCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -14 )
+position = Vector2( 0, -23 )
 shape = SubResource( 28 )
 
 [node name="UncrouchDetection" type="Area2D" parent="."]
