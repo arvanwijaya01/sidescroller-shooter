@@ -6,9 +6,9 @@ var mouse_position = Vector2.ZERO
 var move_vec = Vector2.ZERO
 var equipped = Equip.None
 onready var pistol = $Pistol
-onready var skeleton = $HumanSkeleton
-onready var animation_player = $HumanSkeleton/AnimationPlayer
-onready var arm_animation_player = $HumanSkeleton/ArmAnimationPlayer
+onready var skeleton = $PlayerSkeleton
+onready var animation_player = $PlayerSkeleton/AnimationPlayer
+onready var arm_animation_player = $PlayerSkeleton/ArmAnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,63 +51,43 @@ func _physics_process(_delta):
 				if pistol.reload():
 					arm_animation_player.play("PistolReload")
 	# Movement
+	var move = movement()
+	if animation_player.current_animation != move and is_on_floor():
+		if animation_player.current_animation == "Jump":
+			skeleton.play_footstep_audio()
+		animation_player.play(move)
+		if equipped == Equip.None:
+			arm_animation_player.play(move)
+	# Jump
+	if jump():
+		animation_player.play("Jump")
+		if equipped == Equip.None:
+			arm_animation_player.play("Jump")
+
+func movement():
 	move_vec = move_and_slide(move_vec, Vector2.UP)
 	move_vec.y += 10
 	var target_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if abs(int(target_dir + skeleton.scale.x)) == 2:
 		if !Input.is_action_pressed("run"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -138, 138)
-			if animation_player.current_animation != "RunForward" and is_on_floor():
-				if animation_player.current_animation == "Jump":
-					skeleton.play_footstep_audio()
-				animation_player.play("RunForward")
-				match equipped:
-					Equip.None:
-						arm_animation_player.play("RunForward")
+			return "RunForward"
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
-			if animation_player.current_animation != "WalkForward" and is_on_floor():
-				if animation_player.current_animation == "Jump":
-					skeleton.play_footstep_audio()
-				animation_player.play("WalkForward")
-				match equipped:
-					Equip.None:
-						arm_animation_player.play("WalkForward")
+			return "WalkForward"
 	elif abs(int(target_dir + skeleton.scale.x)) == 0:
 		if !Input.is_action_pressed("run"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -90, 90)
-			if animation_player.current_animation != "RunBackward" and is_on_floor():
-				if animation_player.current_animation == "Jump":
-					skeleton.play_footstep_audio()
-				animation_player.play("RunBackward")
-				match equipped:
-					Equip.None:
-						arm_animation_player.play("RunBackward")
+			return "RunBackward"
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -40, 40)
-			if animation_player.current_animation != "WalkBackward" and is_on_floor():
-				if animation_player.current_animation == "Jump":
-					skeleton.play_footstep_audio()
-				animation_player.play("WalkBackward")
-				match equipped:
-					Equip.None:
-						arm_animation_player.play("WalkBackward")
+			return "WalkBackward"
 	else:
-		if animation_player.current_animation != "Idle" and is_on_floor():
-			if animation_player.current_animation == "Jump":
-					skeleton.play_footstep_audio()
-			animation_player.play("Idle")
-			match equipped:
-				Equip.None:
-					arm_animation_player.play("Idle")
-	if !is_on_floor():
-		if animation_player.current_animation != "Jump":
-			animation_player.play("Jump")
-			match equipped:
-				Equip.None:
-					arm_animation_player.play("Jump")
-	if target_dir == 0:
 		move_vec.x = lerp(move_vec.x, 0, 0.2)
+		return "Idle"
+
+func jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		move_vec.y = -275
-	
+		return true
+	return false
