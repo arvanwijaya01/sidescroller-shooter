@@ -1990,8 +1990,7 @@ z_index = -1
 texture = SubResource( 3 )
 offset = Vector2( 1, 9 )
 __meta__ = {
-"_edit_bone_": true,
-"_edit_ik_": true
+"_edit_bone_": true
 }
 
 [node name="LowerLeg" type="Sprite" parent="BottomTorso/BackLeg"]
@@ -2017,8 +2016,7 @@ z_index = 1
 texture = SubResource( 3 )
 offset = Vector2( 1, 9 )
 __meta__ = {
-"_edit_bone_": true,
-"_edit_ik_": true
+"_edit_bone_": true
 }
 
 [node name="LowerLeg" type="Sprite" parent="BottomTorso/FrontLeg"]
@@ -2039,24 +2037,32 @@ __meta__ = {
 }
 
 [node name="MidTorso" type="Sprite" parent="BottomTorso"]
-position = Vector2( 0, -10.2815 )
 texture = SubResource( 29 )
-offset = Vector2( 0, 8 )
+offset = Vector2( 0, -2 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="TopTorso" type="Sprite" parent="BottomTorso/MidTorso"]
-position = Vector2( 0, -7.71854 )
+position = Vector2( 0, -9 )
 texture = SubResource( 28 )
+offset = Vector2( 0, -9 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="BackArmNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
-position = Vector2( 0, -1 )
+position = Vector2( 0, -9 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="BackArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode"]
 show_behind_parent = true
 z_index = -2
 texture = SubResource( 7 )
 __meta__ = {
-"_edit_bone_": true,
-"_edit_ik_": true
+"_edit_bone_": true
 }
 
 [node name="LowerArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm"]
@@ -2078,7 +2084,10 @@ __meta__ = {
 }
 
 [node name="HeadNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
-position = Vector2( 0, -6 )
+position = Vector2( 0, -15 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="Head" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/HeadNode"]
 texture = SubResource( 2 )
@@ -2088,14 +2097,16 @@ __meta__ = {
 }
 
 [node name="FrontArmNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
-position = Vector2( 0, -1 )
+position = Vector2( 0, -9 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="FrontArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode"]
 z_index = 2
 texture = SubResource( 7 )
 __meta__ = {
-"_edit_bone_": true,
-"_edit_ik_": true
+"_edit_bone_": true
 }
 
 [node name="LowerArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm"]
