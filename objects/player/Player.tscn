@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objects/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://objects/skeleton/PlayerSkeleton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/gun/Pistol.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=28]
-height = 64.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id=29]
+radius = 8.0
+height = 32.0
 
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 0
 script = ExtResource( 1 )
 
 [node name="PlayerSkeleton" parent="." instance=ExtResource( 2 )]
@@ -16,8 +20,22 @@ script = ExtResource( 1 )
 [node name="Pistol" parent="." instance=ExtResource( 3 )]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BottomCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 16 )
 shape = SubResource( 28 )
+
+[node name="TopCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -14 )
+shape = SubResource( 28 )
+
+[node name="UncrouchDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UncrouchDetection"]
+position = Vector2( 0, -16 )
+shape = SubResource( 29 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[connection signal="body_entered" from="UncrouchDetection" to="." method="_on_UncrouchDetection_body_entered"]
+[connection signal="body_exited" from="UncrouchDetection" to="." method="_on_UncrouchDetection_body_exited"]

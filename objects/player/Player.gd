@@ -5,10 +5,13 @@ export var have_pistol = true
 var mouse_position = Vector2.ZERO
 var move_vec = Vector2.ZERO
 var equipped = Equip.None
+var is_crouching = false
+var can_uncrouch = true
 onready var pistol = $Pistol
 onready var skeleton = $PlayerSkeleton
 onready var animation_player = $PlayerSkeleton/AnimationPlayer
 onready var arm_animation_player = $PlayerSkeleton/ArmAnimationPlayer
+onready var top_collision_shape = $TopCollisionShape
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,29 +68,52 @@ func _physics_process(_delta):
 			arm_animation_player.play("Jump")
 
 func movement():
+	if (Input.is_action_pressed("crouch") and is_on_floor()) or !can_uncrouch:
+		is_crouching = true
+		top_collision_shape.disabled = true
+	else:
+		is_crouching = false
+		top_collision_shape.disabled = false
 	move_vec = move_and_slide(move_vec, Vector2.UP)
 	move_vec.y += 10
 	var target_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if abs(int(target_dir + skeleton.scale.x)) == 2:
-		if !Input.is_action_pressed("run"):
+		if is_crouching:
+			move_vec.x = clamp(move_vec.x + target_dir * 15, -30, 30)
+			return "Idle"
+		elif !Input.is_action_pressed("walk"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -138, 138)
 			return "RunForward"
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
 			return "WalkForward"
 	elif abs(int(target_dir + skeleton.scale.x)) == 0:
-		if !Input.is_action_pressed("run"):
+		if is_crouching:
+			move_vec.x = clamp(move_vec.x + target_dir * 15, -20, 20)
+			return "Idle"
+		elif !Input.is_action_pressed("walk"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -90, 90)
 			return "RunBackward"
 		else:
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -40, 40)
 			return "WalkBackward"
 	else:
-		move_vec.x = lerp(move_vec.x, 0, 0.2)
-		return "Idle"
+		if is_crouching:
+			move_vec.x = lerp(move_vec.x, 0, 0.2)
+			return "Idle"
+		else:
+			move_vec.x = lerp(move_vec.x, 0, 0.2)
+			return "Idle"
 
 func jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and can_uncrouch:
 		move_vec.y = -275
 		return true
 	return false
+
+func _on_UncrouchDetection_body_entered(_body):
+	if is_crouching:
+		can_uncrouch = false
+
+func _on_UncrouchDetection_body_exited(_body):
+	can_uncrouch = true
