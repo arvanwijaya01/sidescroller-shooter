@@ -86,13 +86,13 @@ func use_pistol():
 			arm_animation_player.play("PistolReload")
 
 func climb():
-	if skeleton.is_dodging:
-		return false
-	elif skeleton.is_climbing:
+	if skeleton.is_climbing:
 		return true
 	else:
 		var target_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		if climb_detection.can_climb and abs(int(target_dir + skeleton.scale.x)) == 2 and !is_on_floor():
+			if skeleton.is_dodging:
+				skeleton.is_dodging = false
 			position = climb_detection.corner_position + Vector2(skeleton.scale.x * 14.0, -33)
 			pistol.visible = false
 			move_vec = Vector2.ZERO
