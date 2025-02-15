@@ -194,7 +194,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 114.807 ]
+"values": [ 123.741 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
@@ -342,7 +342,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 114.807 ]
+"values": [ 94.2503 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
@@ -1739,9 +1739,10 @@ tracks/5/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=40]
 resource_name = "DodgeBackward"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
@@ -1764,7 +1765,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -36.6734 ]
+"values": [ -27.5794 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
@@ -1776,7 +1777,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -19.1302 ]
+"values": [ 14.5256 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
@@ -1788,7 +1789,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -55.5236 ]
+"values": [ 0.0 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
@@ -1800,7 +1801,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 7.95574 ]
+"values": [ 0.0 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
@@ -1815,9 +1816,10 @@ tracks/5/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=39]
 resource_name = "DodgeForward"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
 tracks/0/interp = 1
@@ -1840,7 +1842,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -36.6734 ]
+"values": [ -27.5794 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
@@ -1852,7 +1854,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -19.1302 ]
+"values": [ 14.5256 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
@@ -1864,7 +1866,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -55.5236 ]
+"values": [ 0.0 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
@@ -1876,7 +1878,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 7.95574 ]
+"values": [ 0.0 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
@@ -3000,8 +3002,8 @@ script = ExtResource( 4 )
 
 [node name="ArmAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crouch = SubResource( 31 )
-anims/DodgeBackward = SubResource( 36 )
-anims/DodgeForward = SubResource( 37 )
+anims/DodgeBackward = SubResource( 40 )
+anims/DodgeForward = SubResource( 39 )
 anims/Idle = SubResource( 16 )
 anims/Jump = SubResource( 17 )
 anims/PistolAim = SubResource( 26 )

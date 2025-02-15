@@ -42,24 +42,9 @@ func _physics_process(_delta):
 	# Use gun
 	match equipped:
 		Equip.Pistol:
-			if Input.is_action_pressed("aim") and arm_animation_player.current_animation != "PistolReload":
-				arm_animation_player.play("PistolAim")
-				skeleton.aiming_is_active = true
-				if Input.is_action_just_pressed("shoot"):
-					pistol.shoot()
-			else:
-				if arm_animation_player.current_animation != "PistolReload":
-					if is_crouching:
-						arm_animation_player.play("PistolCrouch")
-					else:
-						arm_animation_player.play("PistolIdle")
-				skeleton.aiming_is_active = false
-			if Input.is_action_just_pressed("reload"):
-				if pistol.reload():
-					arm_animation_player.play("PistolReload")
+			pistol()
 	# Movement
 	var move = movement()
-	print(move)
 	if (animation_player.current_animation != move and is_on_floor()) or skeleton.is_dodging:
 		if animation_player.current_animation == "Jump":
 			skeleton.play_footstep_audio()
@@ -71,6 +56,23 @@ func _physics_process(_delta):
 		animation_player.play("Jump")
 		if equipped == Equip.None:
 			arm_animation_player.play("Jump")
+
+func pistol():
+	if Input.is_action_pressed("aim") and arm_animation_player.current_animation != "PistolReload":
+		arm_animation_player.play("PistolAim")
+		skeleton.aiming_is_active = true
+		if Input.is_action_just_pressed("shoot"):
+			pistol.shoot()
+	else:
+		if arm_animation_player.current_animation != "PistolReload":
+			if is_crouching:
+				arm_animation_player.play("PistolCrouch")
+			else:
+				arm_animation_player.play("PistolIdle")
+		skeleton.aiming_is_active = false
+	if Input.is_action_just_pressed("reload"):
+		if pistol.reload():
+			arm_animation_player.play("PistolReload")
 
 func movement():
 	if (Input.is_action_pressed("crouch") and is_on_floor()) or (is_crouching and uncrouch_detection.is_colliding()) or (is_crouching and skeleton.is_dodging):
