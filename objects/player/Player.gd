@@ -42,7 +42,7 @@ func _physics_process(_delta):
 	# Use gun
 	match equipped:
 		Equip.Pistol:
-			pistol()
+			use_pistol()
 	# Movement
 	var move = movement()
 	if (animation_player.current_animation != move and is_on_floor()) or skeleton.is_dodging:
@@ -57,7 +57,7 @@ func _physics_process(_delta):
 		if equipped == Equip.None:
 			arm_animation_player.play("Jump")
 
-func pistol():
+func use_pistol():
 	if Input.is_action_pressed("aim") and arm_animation_player.current_animation != "PistolReload":
 		arm_animation_player.play("PistolAim")
 		skeleton.aiming_is_active = true
