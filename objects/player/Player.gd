@@ -60,7 +60,7 @@ func _physics_process(_delta):
 	# Movement
 	var move = movement()
 	print(move)
-	if animation_player.current_animation != move and is_on_floor():
+	if (animation_player.current_animation != move and is_on_floor()) or skeleton.is_dodging:
 		if animation_player.current_animation == "Jump":
 			skeleton.play_footstep_audio()
 		animation_player.play(move)
@@ -78,6 +78,7 @@ func movement():
 		top_collision_shape.disabled = true
 		if Input.is_action_just_pressed("dodge") and !skeleton.is_dodging:
 			move_vec.x = skeleton.scale.x * 400.0
+			skeleton.is_dodging = true
 			return "Slide"
 	else:
 		is_crouching = false
@@ -85,13 +86,14 @@ func movement():
 	move_vec = move_and_slide(move_vec, Vector2.UP)
 	move_vec.y += 10
 	if skeleton.is_dodging:
-		if is_crouching:
-			return "Slide"
-		else:
-			return "Slide"
+		return animation_player.current_animation
 	var target_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if abs(int(target_dir + skeleton.scale.x)) == 2:
-		if is_crouching:
+		if Input.is_action_just_pressed("dodge"):
+			move_vec.x = skeleton.scale.x * 400.0
+			skeleton.is_dodging = true
+			return "DodgeForward"
+		elif is_crouching:
 			move_vec.x = lerp(move_vec.x, 0, 0.2)
 			return "Crouch"
 		elif !Input.is_action_pressed("walk"):
@@ -101,6 +103,10 @@ func movement():
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -60, 60)
 			return "WalkForward"
 	elif abs(int(target_dir + skeleton.scale.x)) == 0:
+		if Input.is_action_just_pressed("dodge"):
+			move_vec.x = -skeleton.scale.x * 400.0
+			skeleton.is_dodging = true
+			return "DodgeBackward"
 		if is_crouching:
 			move_vec.x = lerp(move_vec.x, 0, 0.2)
 			return "Crouch"
@@ -119,7 +125,7 @@ func movement():
 			return "Idle"
 
 func jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor() and can_uncrouch:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and can_uncrouch and !skeleton.is_dodging:
 		move_vec.y = -275
 		return true
 	return false
