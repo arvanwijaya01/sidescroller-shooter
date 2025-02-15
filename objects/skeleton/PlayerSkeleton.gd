@@ -1,6 +1,7 @@
 extends Node2D
 
 export var is_dodging = false
+export var is_climbing = false
 var aiming_is_active = false setget set_aiming_is_active
 onready var front_hand = $BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand
 onready var back_hand = $BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://objects/skeleton/PlayerSkeleton.gd" type="Script" id=1]
 [ext_resource path="res://sprites/skeleton/skeleton.png" type="Texture" id=2]
@@ -44,6 +44,178 @@ region = Rect2( 32, 112, 32, 16 )
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="Animation" id=41]
+resource_name = "Climb"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("BottomTorso/BackLeg/LowerLeg:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 60.2893, 118.547, 96.7513, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomTorso/BackLeg:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -22.9515, -58.4426, -55.0966, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BottomTorso/BackLeg/LowerLeg/Foot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BottomTorso/FrontLeg/LowerLeg:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 29.8685, 29.8685, 29.8685, 122.964, 95.0462, 59.0691, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BottomTorso/FrontLeg:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -14.5674, -14.5674, -14.5674, -101.045, -76.8039, -50.2693, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BottomTorso/FrontLeg/LowerLeg/Foot:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -31.0269, -24.6151, -12.3076, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BottomTorso:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 9.28594, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("BottomTorso:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -24, 65 ), Vector2( -20, 17 ), Vector2( 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("BottomTorso/MidTorso/TopTorso/HeadNode/Head:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("BottomTorso/MidTorso:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 38.1976, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("BottomTorso/MidTorso/TopTorso:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 35.3313, 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath(".:is_climbing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("BottomTorso/MidTorso/TopTorso:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -9 ), Vector2( 0, -9 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("BottomTorso/MidTorso:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=30]
 resource_name = "Crouch"
@@ -895,6 +1067,42 @@ tracks/11/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath(".:is_climbing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("BottomTorso/MidTorso/TopTorso:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -9 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("BottomTorso/MidTorso:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "RunBackward"
@@ -1657,6 +1865,82 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "Climb"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -78.4994, -92.5165, -43.3435, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -89.1724, -40.4986, -55.6654, -82.5761, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -78.5, -92.5, -43.3, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -89.2, -40.5, -55.7, -82.6, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm/Hand:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -2820,6 +3104,7 @@ visible = false
 z_index = -5
 
 [node name="ColorRect" type="ColorRect" parent="Node2D"]
+visible = false
 margin_left = -41.0
 margin_top = -45.0
 margin_right = 41.0
@@ -2827,10 +3112,18 @@ margin_bottom = 37.0
 color = Color( 1, 0, 0, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="Node2D"]
+visible = false
 margin_left = -41.0
 margin_top = -4.0
 margin_right = 41.0
 margin_bottom = 37.0
+
+[node name="ColorRect3" type="ColorRect" parent="Node2D"]
+margin_left = -14.0
+margin_top = 37.0
+margin_right = 26.0
+margin_bottom = 77.0
+color = Color( 0, 0.156863, 1, 1 )
 
 [node name="BottomTorso" type="Sprite" parent="."]
 texture = SubResource( 1 )
@@ -2986,6 +3279,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Climb = SubResource( 41 )
 anims/Crouch = SubResource( 30 )
 anims/DodgeBackward = SubResource( 38 )
 anims/DodgeForward = SubResource( 35 )
@@ -2997,10 +3291,11 @@ anims/RunForward = SubResource( 13 )
 anims/Slide = SubResource( 33 )
 anims/WalkBackward = SubResource( 11 )
 anims/WalkForward = SubResource( 9 )
-blend_times = [ "Crouch", "Crouch", 0.2, "Crouch", "Idle", 0.2, "Crouch", "Jump", 0.2, "Crouch", "RESET", 0.2, "Crouch", "RunBackward", 0.2, "Crouch", "RunForward", 0.2, "Crouch", "Slide", 0.2, "Crouch", "WalkBackward", 0.2, "Crouch", "WalkForward", 0.2, "Idle", "Crouch", 0.2, "Idle", "Jump", 0.2, "Idle", "RESET", 0.2, "Idle", "RunBackward", 0.2, "Idle", "RunForward", 0.2, "Idle", "Slide", 0.2, "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "Jump", "Crouch", 0.2, "Jump", "Idle", 0.2, "Jump", "RESET", 0.2, "Jump", "RunBackward", 0.2, "Jump", "RunForward", 0.2, "Jump", "Slide", 0.2, "Jump", "WalkBackward", 0.2, "Jump", "WalkForward", 0.2, "RESET", "Crouch", 0.2, "RESET", "Idle", 0.2, "RESET", "Jump", 0.2, "RESET", "RunBackward", 0.2, "RESET", "RunForward", 0.2, "RESET", "Slide", 0.2, "RESET", "WalkBackward", 0.2, "RESET", "WalkForward", 0.2, "RunBackward", "Crouch", 0.2, "RunBackward", "Idle", 0.2, "RunBackward", "Jump", 0.2, "RunBackward", "RESET", 0.2, "RunBackward", "RunForward", 0.2, "RunBackward", "Slide", 0.2, "RunBackward", "WalkBackward", 0.2, "RunBackward", "WalkForward", 0.2, "RunForward", "Crouch", 0.2, "RunForward", "Idle", 0.2, "RunForward", "Jump", 0.2, "RunForward", "RESET", 0.2, "RunForward", "RunBackward", 0.2, "RunForward", "Slide", 0.2, "RunForward", "WalkBackward", 0.2, "RunForward", "WalkForward", 0.2, "Slide", "Crouch", 0.2, "Slide", "Idle", 0.2, "Slide", "Jump", 0.2, "Slide", "RESET", 0.2, "Slide", "RunBackward", 0.2, "Slide", "RunForward", 0.2, "Slide", "WalkBackward", 0.2, "Slide", "WalkForward", 0.2, "WalkBackward", "Crouch", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "Jump", 0.2, "WalkBackward", "RESET", 0.2, "WalkBackward", "RunBackward", 0.2, "WalkBackward", "RunForward", 0.2, "WalkBackward", "Slide", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "Crouch", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "Jump", 0.2, "WalkForward", "RESET", 0.2, "WalkForward", "RunBackward", 0.2, "WalkForward", "RunForward", 0.2, "WalkForward", "Slide", 0.2, "WalkForward", "WalkBackward", 0.2 ]
+blend_times = [ "Climb", "Crouch", 0.2, "Climb", "DodgeBackward", 0.2, "Climb", "DodgeForward", 0.2, "Climb", "Idle", 0.2, "Climb", "Jump", 0.2, "Climb", "RESET", 0.2, "Climb", "RunBackward", 0.2, "Climb", "RunForward", 0.2, "Climb", "Slide", 0.2, "Climb", "WalkBackward", 0.2, "Climb", "WalkForward", 0.2, "Crouch", "DodgeBackward", 0.2, "Crouch", "DodgeForward", 0.2, "Crouch", "Idle", 0.2, "Crouch", "Jump", 0.2, "Crouch", "RESET", 0.2, "Crouch", "RunBackward", 0.2, "Crouch", "RunForward", 0.2, "Crouch", "Slide", 0.2, "Crouch", "WalkBackward", 0.2, "Crouch", "WalkForward", 0.2, "DodgeBackward", "Crouch", 0.2, "DodgeBackward", "DodgeForward", 0.2, "DodgeBackward", "Idle", 0.2, "DodgeBackward", "Jump", 0.2, "DodgeBackward", "RESET", 0.2, "DodgeBackward", "RunBackward", 0.2, "DodgeBackward", "RunForward", 0.2, "DodgeBackward", "Slide", 0.2, "DodgeBackward", "WalkBackward", 0.2, "DodgeBackward", "WalkForward", 0.2, "DodgeForward", "Crouch", 0.2, "DodgeForward", "DodgeBackward", 0.2, "DodgeForward", "Idle", 0.2, "DodgeForward", "Jump", 0.2, "DodgeForward", "RESET", 0.2, "DodgeForward", "RunBackward", 0.2, "DodgeForward", "RunForward", 0.2, "DodgeForward", "Slide", 0.2, "DodgeForward", "WalkBackward", 0.2, "DodgeForward", "WalkForward", 0.2, "Idle", "Crouch", 0.2, "Idle", "DodgeBackward", 0.2, "Idle", "DodgeForward", 0.2, "Idle", "Jump", 0.2, "Idle", "RESET", 0.2, "Idle", "RunBackward", 0.2, "Idle", "RunForward", 0.2, "Idle", "Slide", 0.2, "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "Jump", "Crouch", 0.2, "Jump", "DodgeBackward", 0.2, "Jump", "DodgeForward", 0.2, "Jump", "Idle", 0.2, "Jump", "RESET", 0.2, "Jump", "RunBackward", 0.2, "Jump", "RunForward", 0.2, "Jump", "Slide", 0.2, "Jump", "WalkBackward", 0.2, "Jump", "WalkForward", 0.2, "RESET", "Crouch", 0.2, "RESET", "DodgeBackward", 0.2, "RESET", "DodgeForward", 0.2, "RESET", "Idle", 0.2, "RESET", "Jump", 0.2, "RESET", "RunBackward", 0.2, "RESET", "RunForward", 0.2, "RESET", "Slide", 0.2, "RESET", "WalkBackward", 0.2, "RESET", "WalkForward", 0.2, "RunBackward", "Crouch", 0.2, "RunBackward", "DodgeBackward", 0.2, "RunBackward", "DodgeForward", 0.2, "RunBackward", "Idle", 0.2, "RunBackward", "Jump", 0.2, "RunBackward", "RESET", 0.2, "RunBackward", "RunForward", 0.2, "RunBackward", "Slide", 0.2, "RunBackward", "WalkBackward", 0.2, "RunBackward", "WalkForward", 0.2, "RunForward", "Crouch", 0.2, "RunForward", "DodgeBackward", 0.2, "RunForward", "DodgeForward", 0.2, "RunForward", "Idle", 0.2, "RunForward", "Jump", 0.2, "RunForward", "RESET", 0.2, "RunForward", "RunBackward", 0.2, "RunForward", "Slide", 0.2, "RunForward", "WalkBackward", 0.2, "RunForward", "WalkForward", 0.2, "Slide", "Crouch", 0.2, "Slide", "DodgeBackward", 0.2, "Slide", "DodgeForward", 0.2, "Slide", "Idle", 0.2, "Slide", "Jump", 0.2, "Slide", "RESET", 0.2, "Slide", "RunBackward", 0.2, "Slide", "RunForward", 0.2, "Slide", "WalkBackward", 0.2, "Slide", "WalkForward", 0.2, "WalkBackward", "Crouch", 0.2, "WalkBackward", "DodgeBackward", 0.2, "WalkBackward", "DodgeForward", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "Jump", 0.2, "WalkBackward", "RESET", 0.2, "WalkBackward", "RunBackward", 0.2, "WalkBackward", "RunForward", 0.2, "WalkBackward", "Slide", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "Crouch", 0.2, "WalkForward", "DodgeBackward", 0.2, "WalkForward", "DodgeForward", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "Jump", 0.2, "WalkForward", "RESET", 0.2, "WalkForward", "RunBackward", 0.2, "WalkForward", "RunForward", 0.2, "WalkForward", "Slide", 0.2, "WalkForward", "WalkBackward", 0.2 ]
 script = ExtResource( 4 )
 
 [node name="ArmAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Climb = SubResource( 42 )
 anims/Crouch = SubResource( 31 )
 anims/DodgeBackward = SubResource( 40 )
 anims/DodgeForward = SubResource( 39 )
@@ -3016,7 +3311,7 @@ anims/RunForward = SubResource( 20 )
 anims/Slide = SubResource( 34 )
 anims/WalkBackward = SubResource( 21 )
 anims/WalkForward = SubResource( 22 )
-blend_times = [ "Crouch", "Idle", 0.2, "Crouch", "Jump", 0.2, "Crouch", "PistolAim", 0.2, "Crouch", "PistolCrouch", 0.2, "Crouch", "PistolIdle", 0.2, "Crouch", "PistolReload", 0.2, "Crouch", "RESET", 0.2, "Crouch", "RunBackward", 0.2, "Crouch", "RunForward", 0.2, "Crouch", "Slide", 0.2, "Crouch", "WalkBackward", 0.2, "Crouch", "WalkForward", 0.2, "Idle", "Crouch", 0.2, "Idle", "Jump", 0.2, "Idle", "PistolAim", 0.2, "Idle", "PistolCrouch", 0.2, "Idle", "PistolIdle", 0.2, "Idle", "PistolReload", 0.2, "Idle", "RESET", 0.2, "Idle", "RunBackward", 0.2, "Idle", "RunForward", 0.2, "Idle", "Slide", 0.2, "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "Jump", "Crouch", 0.2, "Jump", "Idle", 0.2, "Jump", "PistolAim", 0.2, "Jump", "PistolCrouch", 0.2, "Jump", "PistolIdle", 0.2, "Jump", "PistolReload", 0.2, "Jump", "RESET", 0.2, "Jump", "RunBackward", 0.2, "Jump", "RunForward", 0.2, "Jump", "Slide", 0.2, "Jump", "WalkBackward", 0.2, "Jump", "WalkForward", 0.2, "PistolAim", "Crouch", 0.2, "PistolAim", "Idle", 0.2, "PistolAim", "Jump", 0.2, "PistolAim", "PistolCrouch", 0.2, "PistolAim", "PistolIdle", 0.2, "PistolAim", "PistolReload", 0.2, "PistolAim", "RESET", 0.2, "PistolAim", "RunBackward", 0.2, "PistolAim", "RunForward", 0.2, "PistolAim", "Slide", 0.2, "PistolAim", "WalkBackward", 0.2, "PistolAim", "WalkForward", 0.2, "PistolCrouch", "Crouch", 0.2, "PistolCrouch", "Idle", 0.2, "PistolCrouch", "Jump", 0.2, "PistolCrouch", "PistolAim", 0.2, "PistolCrouch", "PistolIdle", 0.2, "PistolCrouch", "PistolReload", 0.2, "PistolCrouch", "RESET", 0.2, "PistolCrouch", "RunBackward", 0.2, "PistolCrouch", "RunForward", 0.2, "PistolCrouch", "Slide", 0.2, "PistolCrouch", "WalkBackward", 0.2, "PistolCrouch", "WalkForward", 0.2, "PistolIdle", "Crouch", 0.2, "PistolIdle", "Idle", 0.2, "PistolIdle", "Jump", 0.2, "PistolIdle", "PistolAim", 0.2, "PistolIdle", "PistolCrouch", 0.2, "PistolIdle", "PistolReload", 0.2, "PistolIdle", "RESET", 0.2, "PistolIdle", "RunBackward", 0.2, "PistolIdle", "RunForward", 0.2, "PistolIdle", "Slide", 0.2, "PistolIdle", "WalkBackward", 0.2, "PistolIdle", "WalkForward", 0.2, "PistolReload", "Crouch", 0.2, "PistolReload", "Idle", 0.2, "PistolReload", "Jump", 0.2, "PistolReload", "PistolAim", 0.2, "PistolReload", "PistolCrouch", 0.2, "PistolReload", "PistolIdle", 0.2, "PistolReload", "RESET", 0.2, "PistolReload", "RunBackward", 0.2, "PistolReload", "RunForward", 0.2, "PistolReload", "Slide", 0.2, "PistolReload", "WalkBackward", 0.2, "PistolReload", "WalkForward", 0.2, "RESET", "Crouch", 0.2, "RESET", "Idle", 0.2, "RESET", "Jump", 0.2, "RESET", "PistolAim", 0.2, "RESET", "PistolCrouch", 0.2, "RESET", "PistolIdle", 0.2, "RESET", "PistolReload", 0.2, "RESET", "RunBackward", 0.2, "RESET", "RunForward", 0.2, "RESET", "Slide", 0.2, "RESET", "WalkBackward", 0.2, "RESET", "WalkForward", 0.2, "RunBackward", "Crouch", 0.2, "RunBackward", "Idle", 0.2, "RunBackward", "Jump", 0.2, "RunBackward", "PistolAim", 0.2, "RunBackward", "PistolCrouch", 0.2, "RunBackward", "PistolIdle", 0.2, "RunBackward", "PistolReload", 0.2, "RunBackward", "RESET", 0.2, "RunBackward", "RunForward", 0.2, "RunBackward", "Slide", 0.2, "RunBackward", "WalkBackward", 0.2, "RunBackward", "WalkForward", 0.2, "RunForward", "Crouch", 0.2, "RunForward", "Idle", 0.2, "RunForward", "Jump", 0.2, "RunForward", "PistolAim", 0.2, "RunForward", "PistolCrouch", 0.2, "RunForward", "PistolIdle", 0.2, "RunForward", "PistolReload", 0.2, "RunForward", "RESET", 0.2, "RunForward", "RunBackward", 0.2, "RunForward", "Slide", 0.2, "RunForward", "WalkBackward", 0.2, "RunForward", "WalkForward", 0.2, "Slide", "Crouch", 0.2, "Slide", "Idle", 0.2, "Slide", "Jump", 0.2, "Slide", "PistolAim", 0.2, "Slide", "PistolCrouch", 0.2, "Slide", "PistolIdle", 0.2, "Slide", "PistolReload", 0.2, "Slide", "RESET", 0.2, "Slide", "RunBackward", 0.2, "Slide", "RunForward", 0.2, "Slide", "WalkBackward", 0.2, "Slide", "WalkForward", 0.2, "WalkBackward", "Crouch", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "Jump", 0.2, "WalkBackward", "PistolAim", 0.2, "WalkBackward", "PistolCrouch", 0.2, "WalkBackward", "PistolIdle", 0.2, "WalkBackward", "PistolReload", 0.2, "WalkBackward", "RESET", 0.2, "WalkBackward", "RunBackward", 0.2, "WalkBackward", "RunForward", 0.2, "WalkBackward", "Slide", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "Crouch", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "Jump", 0.2, "WalkForward", "PistolAim", 0.2, "WalkForward", "PistolCrouch", 0.2, "WalkForward", "PistolIdle", 0.2, "WalkForward", "PistolReload", 0.2, "WalkForward", "RESET", 0.2, "WalkForward", "RunBackward", 0.2, "WalkForward", "RunForward", 0.2, "WalkForward", "Slide", 0.2, "WalkForward", "WalkBackward", 0.2 ]
+blend_times = [ "Climb", "Crouch", 0.2, "Climb", "DodgeBackward", 0.2, "Climb", "DodgeForward", 0.2, "Climb", "Idle", 0.2, "Climb", "Jump", 0.2, "Climb", "PistolAim", 0.2, "Climb", "PistolCrouch", 0.2, "Climb", "PistolIdle", 0.2, "Climb", "PistolReload", 0.2, "Climb", "RESET", 0.2, "Climb", "RunBackward", 0.2, "Climb", "RunForward", 0.2, "Climb", "Slide", 0.2, "Climb", "WalkBackward", 0.2, "Climb", "WalkForward", 0.2, "Crouch", "DodgeBackward", 0.2, "Crouch", "DodgeForward", 0.2, "Crouch", "Idle", 0.2, "Crouch", "Jump", 0.2, "Crouch", "PistolAim", 0.2, "Crouch", "PistolCrouch", 0.2, "Crouch", "PistolIdle", 0.2, "Crouch", "PistolReload", 0.2, "Crouch", "RESET", 0.2, "Crouch", "RunBackward", 0.2, "Crouch", "RunForward", 0.2, "Crouch", "Slide", 0.2, "Crouch", "WalkBackward", 0.2, "Crouch", "WalkForward", 0.2, "DodgeBackward", "Crouch", 0.2, "DodgeBackward", "DodgeForward", 0.2, "DodgeBackward", "Idle", 0.2, "DodgeBackward", "Jump", 0.2, "DodgeBackward", "PistolAim", 0.2, "DodgeBackward", "PistolCrouch", 0.2, "DodgeBackward", "PistolIdle", 0.2, "DodgeBackward", "PistolReload", 0.2, "DodgeBackward", "RESET", 0.2, "DodgeBackward", "RunBackward", 0.2, "DodgeBackward", "RunForward", 0.2, "DodgeBackward", "Slide", 0.2, "DodgeBackward", "WalkBackward", 0.2, "DodgeBackward", "WalkForward", 0.2, "DodgeForward", "Crouch", 0.2, "DodgeForward", "DodgeBackward", 0.2, "DodgeForward", "Idle", 0.2, "DodgeForward", "Jump", 0.2, "DodgeForward", "PistolAim", 0.2, "DodgeForward", "PistolCrouch", 0.2, "DodgeForward", "PistolIdle", 0.2, "DodgeForward", "PistolReload", 0.2, "DodgeForward", "RESET", 0.2, "DodgeForward", "RunBackward", 0.2, "DodgeForward", "RunForward", 0.2, "DodgeForward", "Slide", 0.2, "DodgeForward", "WalkBackward", 0.2, "DodgeForward", "WalkForward", 0.2, "Idle", "Crouch", 0.2, "Idle", "DodgeBackward", 0.2, "Idle", "DodgeForward", 0.2, "Idle", "Jump", 0.2, "Idle", "PistolAim", 0.2, "Idle", "PistolCrouch", 0.2, "Idle", "PistolIdle", 0.2, "Idle", "PistolReload", 0.2, "Idle", "RESET", 0.2, "Idle", "RunBackward", 0.2, "Idle", "RunForward", 0.2, "Idle", "Slide", 0.2, "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "Jump", "Crouch", 0.2, "Jump", "DodgeBackward", 0.2, "Jump", "DodgeForward", 0.2, "Jump", "Idle", 0.2, "Jump", "PistolAim", 0.2, "Jump", "PistolCrouch", 0.2, "Jump", "PistolIdle", 0.2, "Jump", "PistolReload", 0.2, "Jump", "RESET", 0.2, "Jump", "RunBackward", 0.2, "Jump", "RunForward", 0.2, "Jump", "Slide", 0.2, "Jump", "WalkBackward", 0.2, "Jump", "WalkForward", 0.2, "PistolAim", "Crouch", 0.2, "PistolAim", "DodgeBackward", 0.2, "PistolAim", "DodgeForward", 0.2, "PistolAim", "Idle", 0.2, "PistolAim", "Jump", 0.2, "PistolAim", "PistolCrouch", 0.2, "PistolAim", "PistolIdle", 0.2, "PistolAim", "PistolReload", 0.2, "PistolAim", "RESET", 0.2, "PistolAim", "RunBackward", 0.2, "PistolAim", "RunForward", 0.2, "PistolAim", "Slide", 0.2, "PistolAim", "WalkBackward", 0.2, "PistolAim", "WalkForward", 0.2, "PistolCrouch", "Crouch", 0.2, "PistolCrouch", "DodgeBackward", 0.2, "PistolCrouch", "DodgeForward", 0.2, "PistolCrouch", "Idle", 0.2, "PistolCrouch", "Jump", 0.2, "PistolCrouch", "PistolAim", 0.2, "PistolCrouch", "PistolIdle", 0.2, "PistolCrouch", "PistolReload", 0.2, "PistolCrouch", "RESET", 0.2, "PistolCrouch", "RunBackward", 0.2, "PistolCrouch", "RunForward", 0.2, "PistolCrouch", "Slide", 0.2, "PistolCrouch", "WalkBackward", 0.2, "PistolCrouch", "WalkForward", 0.2, "PistolIdle", "Crouch", 0.2, "PistolIdle", "DodgeBackward", 0.2, "PistolIdle", "DodgeForward", 0.2, "PistolIdle", "Idle", 0.2, "PistolIdle", "Jump", 0.2, "PistolIdle", "PistolAim", 0.2, "PistolIdle", "PistolCrouch", 0.2, "PistolIdle", "PistolReload", 0.2, "PistolIdle", "RESET", 0.2, "PistolIdle", "RunBackward", 0.2, "PistolIdle", "RunForward", 0.2, "PistolIdle", "Slide", 0.2, "PistolIdle", "WalkBackward", 0.2, "PistolIdle", "WalkForward", 0.2, "PistolReload", "Crouch", 0.2, "PistolReload", "DodgeBackward", 0.2, "PistolReload", "DodgeForward", 0.2, "PistolReload", "Idle", 0.2, "PistolReload", "Jump", 0.2, "PistolReload", "PistolAim", 0.2, "PistolReload", "PistolCrouch", 0.2, "PistolReload", "PistolIdle", 0.2, "PistolReload", "RESET", 0.2, "PistolReload", "RunBackward", 0.2, "PistolReload", "RunForward", 0.2, "PistolReload", "Slide", 0.2, "PistolReload", "WalkBackward", 0.2, "PistolReload", "WalkForward", 0.2, "RESET", "Crouch", 0.2, "RESET", "DodgeBackward", 0.2, "RESET", "DodgeForward", 0.2, "RESET", "Idle", 0.2, "RESET", "Jump", 0.2, "RESET", "PistolAim", 0.2, "RESET", "PistolCrouch", 0.2, "RESET", "PistolIdle", 0.2, "RESET", "PistolReload", 0.2, "RESET", "RunBackward", 0.2, "RESET", "RunForward", 0.2, "RESET", "Slide", 0.2, "RESET", "WalkBackward", 0.2, "RESET", "WalkForward", 0.2, "RunBackward", "Crouch", 0.2, "RunBackward", "DodgeBackward", 0.2, "RunBackward", "DodgeForward", 0.2, "RunBackward", "Idle", 0.2, "RunBackward", "Jump", 0.2, "RunBackward", "PistolAim", 0.2, "RunBackward", "PistolCrouch", 0.2, "RunBackward", "PistolIdle", 0.2, "RunBackward", "PistolReload", 0.2, "RunBackward", "RESET", 0.2, "RunBackward", "RunForward", 0.2, "RunBackward", "Slide", 0.2, "RunBackward", "WalkBackward", 0.2, "RunBackward", "WalkForward", 0.2, "RunForward", "Crouch", 0.2, "RunForward", "DodgeBackward", 0.2, "RunForward", "DodgeForward", 0.2, "RunForward", "Idle", 0.2, "RunForward", "Jump", 0.2, "RunForward", "PistolAim", 0.2, "RunForward", "PistolCrouch", 0.2, "RunForward", "PistolIdle", 0.2, "RunForward", "PistolReload", 0.2, "RunForward", "RESET", 0.2, "RunForward", "RunBackward", 0.2, "RunForward", "Slide", 0.2, "RunForward", "WalkBackward", 0.2, "RunForward", "WalkForward", 0.2, "Slide", "Crouch", 0.2, "Slide", "DodgeBackward", 0.2, "Slide", "DodgeForward", 0.2, "Slide", "Idle", 0.2, "Slide", "Jump", 0.2, "Slide", "PistolAim", 0.2, "Slide", "PistolCrouch", 0.2, "Slide", "PistolIdle", 0.2, "Slide", "PistolReload", 0.2, "Slide", "RESET", 0.2, "Slide", "RunBackward", 0.2, "Slide", "RunForward", 0.2, "Slide", "WalkBackward", 0.2, "Slide", "WalkForward", 0.2, "WalkBackward", "Crouch", 0.2, "WalkBackward", "DodgeBackward", 0.2, "WalkBackward", "DodgeForward", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "Jump", 0.2, "WalkBackward", "PistolAim", 0.2, "WalkBackward", "PistolCrouch", 0.2, "WalkBackward", "PistolIdle", 0.2, "WalkBackward", "PistolReload", 0.2, "WalkBackward", "RESET", 0.2, "WalkBackward", "RunBackward", 0.2, "WalkBackward", "RunForward", 0.2, "WalkBackward", "Slide", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "Crouch", 0.2, "WalkForward", "DodgeBackward", 0.2, "WalkForward", "DodgeForward", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "Jump", 0.2, "WalkForward", "PistolAim", 0.2, "WalkForward", "PistolCrouch", 0.2, "WalkForward", "PistolIdle", 0.2, "WalkForward", "PistolReload", 0.2, "WalkForward", "RESET", 0.2, "WalkForward", "RunBackward", 0.2, "WalkForward", "RunForward", 0.2, "WalkForward", "Slide", 0.2, "WalkForward", "WalkBackward", 0.2 ]
 script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]

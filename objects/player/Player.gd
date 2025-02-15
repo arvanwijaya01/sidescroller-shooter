@@ -13,6 +13,7 @@ onready var animation_player = $PlayerSkeleton/AnimationPlayer
 onready var arm_animation_player = $PlayerSkeleton/ArmAnimationPlayer
 onready var top_collision_shape = $TopCollisionShape
 onready var uncrouch_detection = $UncrouchDetection
+onready var climb_detection = $ClimbDetection
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,16 +22,20 @@ func _ready():
 
 func _physics_process(_delta):
 	# Get mouse position and face toward it
-	mouse_position = get_global_mouse_position()
-	if mouse_position.x > position.x:
-		skeleton.scale = Vector2(1.0, 1.0)
-		pistol.scale = Vector2(1.0, 1.0)
-	elif mouse_position.x < position.x:
-		skeleton.scale = Vector2(-1.0, 1.0)
-		pistol.scale = Vector2(-1.0, 1.0)
+	if !skeleton.is_climbing:
+		mouse_position = get_global_mouse_position()
+		if mouse_position.x > position.x:
+			skeleton.scale = Vector2(1.0, 1.0)
+			pistol.scale = Vector2(1.0, 1.0)
+			climb_detection.scale = Vector2(1.0, 1.0)
+		elif mouse_position.x < position.x:
+			skeleton.scale = Vector2(-1.0, 1.0)
+			pistol.scale = Vector2(-1.0, 1.0)
+			climb_detection.scale = Vector2(-1.0, 1.0)
 	# Change Equip
 	if equipped == Equip.Pistol:
 		skeleton.attach_to_front_arm(pistol)
+		pistol.visible = true
 	if Input.is_action_just_pressed("unequip") and equipped != Equip.None:
 		arm_animation_player.play("Idle")
 		equipped = Equip.None
@@ -40,9 +45,15 @@ func _physics_process(_delta):
 		skeleton.attach_to_front_arm(pistol)
 		pistol.visible = true
 	# Use gun
-	match equipped:
-		Equip.Pistol:
-			use_pistol()
+	if skeleton.is_climbing:
+		skeleton.aiming_is_active = false
+	else:
+		match equipped:
+			Equip.Pistol:
+				use_pistol()
+	# Climb
+	if climb():
+		return
 	# Movement
 	var move = movement()
 	if (animation_player.current_animation != move and is_on_floor()) or skeleton.is_dodging:
@@ -73,6 +84,21 @@ func use_pistol():
 	if Input.is_action_just_pressed("reload"):
 		if pistol.reload():
 			arm_animation_player.play("PistolReload")
+
+func climb():
+	if skeleton.is_climbing:
+		return true
+	else:
+		var target_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		if climb_detection.can_climb and abs(int(target_dir + skeleton.scale.x)) == 2 and !is_on_floor():
+			var new_pos = climb_detection.corner_position + Vector2(skeleton.scale.x * 14.0, -33)
+			position = climb_detection.corner_position + Vector2(skeleton.scale.x * 14.0, -33)
+			pistol.visible = false
+			move_vec = Vector2.ZERO
+			animation_player.play("Climb")
+			arm_animation_player.play("Climb")
+			return true
+	return false
 
 func movement():
 	if (Input.is_action_pressed("crouch") and is_on_floor()) or (is_crouching and uncrouch_detection.is_colliding()) or (is_crouching and skeleton.is_dodging):

@@ -11,8 +11,10 @@ extends AnimationPlayer
 func _ready():
 	for anim in get_animation_list():
 		for each in get_animation_list():
-			if each != anim:
+			if each != anim and each != "Climb":
 				set_blend_time(anim, each, 0.2)
+			else:
+				set_blend_time(anim, each, 0.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

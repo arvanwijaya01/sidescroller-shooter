@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objects/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://objects/skeleton/PlayerSkeleton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/gun/Pistol.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/player/ClimbDetection.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=28]
 height = 32.0
@@ -24,6 +25,24 @@ shape = SubResource( 28 )
 position = Vector2( 0, -23 )
 shape = SubResource( 28 )
 
+[node name="ClimbDetection" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="TopRayCast" type="RayCast2D" parent="ClimbDetection"]
+position = Vector2( 0, -40 )
+enabled = true
+cast_to = Vector2( 32, 0 )
+
+[node name="MidRayCast" type="RayCast2D" parent="ClimbDetection"]
+position = Vector2( 32, -40 )
+enabled = true
+cast_to = Vector2( 0, 16 )
+
+[node name="BottomRayCast" type="RayCast2D" parent="ClimbDetection"]
+position = Vector2( 0, -24 )
+enabled = true
+cast_to = Vector2( 16, 0 )
+
 [node name="UncrouchDetection" type="RayCast2D" parent="."]
 position = Vector2( 0, -7 )
 enabled = true
@@ -31,3 +50,5 @@ cast_to = Vector2( 0, -42 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+process_mode = 0
+smoothing_enabled = true
