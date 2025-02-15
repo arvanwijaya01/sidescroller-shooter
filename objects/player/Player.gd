@@ -12,6 +12,7 @@ onready var skeleton = $PlayerSkeleton
 onready var animation_player = $PlayerSkeleton/AnimationPlayer
 onready var arm_animation_player = $PlayerSkeleton/ArmAnimationPlayer
 onready var top_collision_shape = $TopCollisionShape
+onready var uncrouch_detection = $UncrouchDetection
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,7 +50,7 @@ func _physics_process(_delta):
 			else:
 				if arm_animation_player.current_animation != "PistolReload":
 					if is_crouching:
-						arm_animation_player.play("PistolIdleCrouch")
+						arm_animation_player.play("PistolCrouch")
 					else:
 						arm_animation_player.play("PistolIdle")
 				skeleton.aiming_is_active = false
@@ -58,6 +59,7 @@ func _physics_process(_delta):
 					arm_animation_player.play("PistolReload")
 	# Movement
 	var move = movement()
+	print(move)
 	if animation_player.current_animation != move and is_on_floor():
 		if animation_player.current_animation == "Jump":
 			skeleton.play_footstep_audio()
@@ -65,25 +67,33 @@ func _physics_process(_delta):
 		if equipped == Equip.None:
 			arm_animation_player.play(move)
 	# Jump
-	if jump():
+	if jump() or (!is_on_floor() and !skeleton.is_dodging):
 		animation_player.play("Jump")
 		if equipped == Equip.None:
 			arm_animation_player.play("Jump")
 
 func movement():
-	if (Input.is_action_pressed("crouch") and is_on_floor()) or !can_uncrouch:
+	if (Input.is_action_pressed("crouch") and is_on_floor()) or (is_crouching and uncrouch_detection.is_colliding()) or (is_crouching and skeleton.is_dodging):
 		is_crouching = true
 		top_collision_shape.disabled = true
+		if Input.is_action_just_pressed("dodge") and !skeleton.is_dodging:
+			move_vec.x = skeleton.scale.x * 400.0
+			return "Slide"
 	else:
 		is_crouching = false
 		top_collision_shape.disabled = false
 	move_vec = move_and_slide(move_vec, Vector2.UP)
 	move_vec.y += 10
+	if skeleton.is_dodging:
+		if is_crouching:
+			return "Slide"
+		else:
+			return "Slide"
 	var target_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if abs(int(target_dir + skeleton.scale.x)) == 2:
 		if is_crouching:
-			move_vec.x = clamp(move_vec.x + target_dir * 15, -30, 30)
-			return "Idle"
+			move_vec.x = lerp(move_vec.x, 0, 0.2)
+			return "Crouch"
 		elif !Input.is_action_pressed("walk"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -138, 138)
 			return "RunForward"
@@ -92,8 +102,8 @@ func movement():
 			return "WalkForward"
 	elif abs(int(target_dir + skeleton.scale.x)) == 0:
 		if is_crouching:
-			move_vec.x = clamp(move_vec.x + target_dir * 15, -20, 20)
-			return "Idle"
+			move_vec.x = lerp(move_vec.x, 0, 0.2)
+			return "Crouch"
 		elif !Input.is_action_pressed("walk"):
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -90, 90)
 			return "RunBackward"
@@ -103,7 +113,7 @@ func movement():
 	else:
 		if is_crouching:
 			move_vec.x = lerp(move_vec.x, 0, 0.2)
-			return "IdleCrouch"
+			return "Crouch"
 		else:
 			move_vec.x = lerp(move_vec.x, 0, 0.2)
 			return "Idle"
@@ -113,10 +123,3 @@ func jump():
 		move_vec.y = -275
 		return true
 	return false
-
-func _on_UncrouchDetection_body_entered(_body):
-	if is_crouching:
-		can_uncrouch = false
-
-func _on_UncrouchDetection_body_exited(_body):
-	can_uncrouch = true
