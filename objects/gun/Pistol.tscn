@@ -233,7 +233,7 @@ tracks/4/keys = {
 
 [node name="Pistol" type="Node2D"]
 show_behind_parent = true
-z_index = 2
+z_index = 1
 z_as_relative = false
 script = ExtResource( 2 )
 

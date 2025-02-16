@@ -12,10 +12,10 @@ func _ready():
 	pass # Replace with function body.
 
 func shoot():
-	if !animation_player.is_playing() and ammo_in_magazine != 0:
+	if !animation_player.is_playing() and ammo_in_magazine != 0 and Input.is_action_just_pressed("shoot"):
 		line.points[1] = Vector2(((raycast.get_collision_point() - raycast.global_position).length()) if raycast.is_colliding() else 1000.0, 0.0)
 		ammo_in_magazine -= 1
-		line.rotation = rotation
+		line.global_rotation = global_rotation
 		line.position = raycast.global_position
 		line.scale = scale
 		animation_player.play("Shoot")

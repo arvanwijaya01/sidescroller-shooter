@@ -1,13 +1,10 @@
 extends KinematicBody2D
 
-enum Equip{None, Pistol}
-export var have_pistol = true
-export var equipped = Equip.Pistol
 var mouse_position = Vector2.ZERO
 var move_vec = Vector2.ZERO
 var is_crouching = false
 var can_uncrouch = true
-onready var pistol = $Pistol
+onready var weapon = $Weapon
 onready var skeleton = $PlayerSkeleton
 onready var animation_player = $PlayerSkeleton/AnimationPlayer
 onready var arm_animation_player = $PlayerSkeleton/ArmAnimationPlayer
@@ -19,36 +16,15 @@ onready var tween = $Tween
 
 func _physics_process(_delta):
 	# Get mouse position and face toward it
-	if !skeleton.is_climbing:
-		mouse_position = get_global_mouse_position()
-		if mouse_position.x > position.x:
-			skeleton.scale = Vector2(1.0, 1.0)
-			pistol.scale = Vector2(1.0, 1.0)
-			climb_detection.scale = Vector2(1.0, 1.0)
-		elif mouse_position.x < position.x:
-			skeleton.scale = Vector2(-1.0, 1.0)
-			pistol.scale = Vector2(-1.0, 1.0)
-			climb_detection.scale = Vector2(-1.0, 1.0)
+	orientation()
 	# Change Equip
-	match equipped:
-		Equip.Pistol:
-			skeleton.attach_to_front_arm(pistol)
-			pistol.visible = true
-		Equip.None:
-			skeleton.aiming_is_active = false
-			pistol.visible = false
-	if Input.is_action_just_pressed("unequip") and equipped != Equip.None:
-		arm_animation_player.play("Idle")
-		equipped = Equip.None
-	if Input.is_action_just_pressed("equip_pistol") and equipped != Equip.Pistol:
-		equipped = Equip.Pistol
+	change_equip()
 	# Use gun
 	if skeleton.is_climbing:
 		skeleton.aiming_is_active = false
 	else:
-		match equipped:
-			Equip.Pistol:
-				use_pistol()
+		if weapon.equipped != weapon.Equip.None:
+			use_weapon()
 	# Climb
 	if climb():
 		return
@@ -58,25 +34,49 @@ func _physics_process(_delta):
 		if animation_player.current_animation == "Jump":
 			skeleton.play_footstep_audio()
 		animation_player.play(move)
-		if equipped == Equip.None:
+		if weapon.equipped == weapon.Equip.None:
 			arm_animation_player.play(move)
 	# Jump
 	if jump() or (!is_on_floor() and !skeleton.is_dodging):
 		animation_player.play("Jump")
-		if equipped == Equip.None:
+		if weapon.equipped == weapon.Equip.None:
 			arm_animation_player.play("Jump")
 
-func use_pistol():
-	if arm_animation_player.current_animation != "PistolReload":
-		arm_animation_player.play("PistolAim")
+func orientation():
+	if !skeleton.is_climbing:
+		mouse_position = get_global_mouse_position()
+		if mouse_position.x > position.x:
+			skeleton.scale = Vector2(1.0, 1.0)
+			weapon.scale = Vector2(1.0, 1.0)
+			climb_detection.scale = Vector2(1.0, 1.0)
+		elif mouse_position.x < position.x:
+			skeleton.scale = Vector2(-1.0, 1.0)
+			weapon.scale = Vector2(-1.0, 1.0)
+			climb_detection.scale = Vector2(-1.0, 1.0)
+
+func change_equip():
+	if weapon.equipped == weapon.Equip.None:
+		skeleton.aiming_is_active = false
+	else:
+		skeleton.attach_to_front_arm(weapon)
+	if Input.is_action_just_pressed("unequip") and weapon.equipped != weapon.Equip.None:
+		arm_animation_player.play(animation_player.current_animation)
+		arm_animation_player.seek(animation_player.current_animation_position)
+		weapon.equipped = weapon.Equip.None
+	if Input.is_action_just_pressed("equip_pistol") and weapon.equipped != weapon.Equip.Pistol:
+		weapon.equipped = weapon.Equip.Pistol
+
+func use_weapon():
+	if arm_animation_player.current_animation != weapon.get_equipped_name() + "Reload":
+		arm_animation_player.play(weapon.get_equipped_name() + "Aim")
 		skeleton.aiming_is_active = true
-		if Input.is_action_just_pressed("shoot"):
-			pistol.shoot()
+		if Input.is_action_pressed("shoot"):
+			weapon.shoot()
 	else:
 		skeleton.aiming_is_active = false
 	if Input.is_action_just_pressed("reload"):
-		if pistol.reload():
-			arm_animation_player.play("PistolReload")
+		if weapon.reload():
+			arm_animation_player.play(weapon.get_equipped_name() + "Reload")
 
 func climb():
 	if skeleton.is_climbing:
