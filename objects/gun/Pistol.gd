@@ -1,6 +1,6 @@
 extends Node2D
 
-
+export var max_ammo = 15
 var ammo_in_magazine = 15
 onready var animation_player = $AnimationPlayer
 onready var raycast = $RayCast2D
@@ -26,10 +26,10 @@ func shoot():
 		get_viewport().warp_mouse(recoil_position)
 
 func reload():
-	if !animation_player.is_playing() and ammo_in_magazine < 15:
+	if !animation_player.is_playing() and ammo_in_magazine < max_ammo:
 		animation_player.play("Reload")
 		return true
 	return false
 
 func reload_finished():
-	ammo_in_magazine = 15
+	ammo_in_magazine = max_ammo

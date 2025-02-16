@@ -21,7 +21,7 @@ func _physics_process(_delta):
 		arm_target_rotation = arm_target_rotation if scale.x > 0 else deg2rad(180.0) - arm_target_rotation
 		arm_target_rotation -= top_torso.rotation + mid_torso.rotation + bottom_torso.rotation
 		var head_target_rotation = head_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0)
-		head_node.rotation = lerp_angle(head_node.rotation, head_target_rotation, 0.5)
+		head_node.rotation = clamp(lerp_angle(head_node.rotation, head_target_rotation, 0.5), deg2rad(-45.0), deg2rad(45.0))
 		back_arm_node.rotation = lerp_angle(back_arm_node.rotation, arm_target_rotation, 0.5)
 		front_arm_node.rotation = lerp_angle(front_arm_node.rotation, arm_target_rotation, 0.5)
 		# 21 + 18 = 39 , -7

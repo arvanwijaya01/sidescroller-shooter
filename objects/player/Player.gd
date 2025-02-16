@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 enum Equip{None, Pistol}
 export var have_pistol = true
+export var equipped = Equip.Pistol
 var mouse_position = Vector2.ZERO
 var move_vec = Vector2.ZERO
-var equipped = Equip.None
 var is_crouching = false
 var can_uncrouch = true
 onready var pistol = $Pistol
@@ -15,10 +15,6 @@ onready var top_collision_shape = $TopCollisionShape
 onready var uncrouch_detection = $UncrouchDetection
 onready var climb_detection = $ClimbDetection
 onready var tween = $Tween
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 func _physics_process(_delta):
@@ -34,17 +30,18 @@ func _physics_process(_delta):
 			pistol.scale = Vector2(-1.0, 1.0)
 			climb_detection.scale = Vector2(-1.0, 1.0)
 	# Change Equip
-	if equipped == Equip.Pistol:
-		skeleton.attach_to_front_arm(pistol)
-		pistol.visible = true
+	match equipped:
+		Equip.Pistol:
+			skeleton.attach_to_front_arm(pistol)
+			pistol.visible = true
+		Equip.None:
+			skeleton.aiming_is_active = false
+			pistol.visible = false
 	if Input.is_action_just_pressed("unequip") and equipped != Equip.None:
 		arm_animation_player.play("Idle")
 		equipped = Equip.None
-		pistol.visible = false
 	if Input.is_action_just_pressed("equip_pistol") and equipped != Equip.Pistol:
 		equipped = Equip.Pistol
-		skeleton.attach_to_front_arm(pistol)
-		pistol.visible = true
 	# Use gun
 	if skeleton.is_climbing:
 		skeleton.aiming_is_active = false
@@ -70,17 +67,12 @@ func _physics_process(_delta):
 			arm_animation_player.play("Jump")
 
 func use_pistol():
-	if Input.is_action_pressed("aim") and arm_animation_player.current_animation != "PistolReload":
+	if arm_animation_player.current_animation != "PistolReload":
 		arm_animation_player.play("PistolAim")
 		skeleton.aiming_is_active = true
 		if Input.is_action_just_pressed("shoot"):
 			pistol.shoot()
 	else:
-		if arm_animation_player.current_animation != "PistolReload":
-			if is_crouching:
-				arm_animation_player.play("PistolCrouch")
-			else:
-				arm_animation_player.play("PistolIdle")
 		skeleton.aiming_is_active = false
 	if Input.is_action_just_pressed("reload"):
 		if pistol.reload():
