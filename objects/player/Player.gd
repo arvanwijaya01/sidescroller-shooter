@@ -14,6 +14,7 @@ onready var arm_animation_player = $PlayerSkeleton/ArmAnimationPlayer
 onready var top_collision_shape = $TopCollisionShape
 onready var uncrouch_detection = $UncrouchDetection
 onready var climb_detection = $ClimbDetection
+onready var tween = $Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -93,8 +94,11 @@ func climb():
 		if climb_detection.can_climb and abs(int(target_dir + skeleton.scale.x)) == 2 and !is_on_floor():
 			if skeleton.is_dodging:
 				skeleton.is_dodging = false
-			position = climb_detection.corner_position + Vector2(skeleton.scale.x * 14.0, -33)
-			pistol.visible = false
+			position = climb_detection.corner_position + Vector2(skeleton.scale.x * -14.0, 33)
+			tween.interpolate_property(self, "position",
+					position, climb_detection.corner_position + Vector2(skeleton.scale.x * 14.0, -33), 0.6,
+					Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			tween.start()
 			move_vec = Vector2.ZERO
 			animation_player.play("Climb")
 			arm_animation_player.play("Climb")

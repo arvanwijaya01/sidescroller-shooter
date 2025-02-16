@@ -10,7 +10,6 @@ onready var bottom_raycast = $BottomRayCast
 func _physics_process(_delta):
 	if !top_raycast.is_colliding() and bottom_raycast.is_colliding():
 		corner_position = Vector2(bottom_raycast.get_collision_point().x, mid_raycast.get_collision_point().y)
-		print(corner_position)
 		can_climb = true
 	else:
 		can_climb = false

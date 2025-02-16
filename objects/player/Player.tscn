@@ -52,3 +52,5 @@ cast_to = Vector2( 0, -42 )
 current = true
 process_mode = 0
 smoothing_enabled = true
+
+[node name="Tween" type="Tween" parent="."]
