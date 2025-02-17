@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://objects/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://objects/skeleton/PlayerSkeleton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/gun/Pistol.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/player/ClimbDetection.gd" type="Script" id=4]
 [ext_resource path="res://objects/player/Weapon.gd" type="Script" id=5]
+[ext_resource path="res://objects/gun/AssaultRifle.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=28]
 height = 32.0
@@ -19,6 +20,9 @@ script = ExtResource( 1 )
 script = ExtResource( 5 )
 
 [node name="Pistol" parent="Weapon" instance=ExtResource( 3 )]
+visible = false
+
+[node name="AssaultRifle" parent="Weapon" instance=ExtResource( 6 )]
 visible = false
 
 [node name="BottomCollisionShape" type="CollisionShape2D" parent="."]

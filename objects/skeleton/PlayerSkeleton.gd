@@ -17,7 +17,7 @@ onready var footstep_audio = $FootstepAudio
 func _physics_process(_delta):
 	if aiming_is_active:
 		var arm_target_rotation = front_arm_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0)
-		arm_target_rotation = get_global_mouse_position().angle_to_point(front_arm_node.global_position + (Vector2(0.0, -7.0)).rotated(scale.x * arm_target_rotation))
+		arm_target_rotation = get_global_mouse_position().angle_to_point(front_arm_node.global_position + (Vector2(0.0, -6.5)).rotated(scale.x * arm_target_rotation))
 		arm_target_rotation = arm_target_rotation if scale.x > 0 else deg2rad(180.0) - arm_target_rotation
 		arm_target_rotation -= top_torso.rotation + mid_torso.rotation + bottom_torso.rotation
 		var head_target_rotation = head_node.position.angle_to(get_local_mouse_position()) + deg2rad(-90.0)

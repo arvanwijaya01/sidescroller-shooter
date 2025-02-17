@@ -63,8 +63,10 @@ func change_equip():
 		arm_animation_player.play(animation_player.current_animation)
 		arm_animation_player.seek(animation_player.current_animation_position)
 		weapon.equipped = weapon.Equip.None
-	if Input.is_action_just_pressed("equip_pistol") and weapon.equipped != weapon.Equip.Pistol:
+	elif Input.is_action_just_pressed("equip_pistol") and weapon.equipped != weapon.Equip.Pistol:
 		weapon.equipped = weapon.Equip.Pistol
+	elif Input.is_action_just_pressed("equip_assault_rifle") and weapon.equipped != weapon.Equip.AssaultRifle:
+		weapon.equipped = weapon.Equip.AssaultRifle
 
 func use_weapon():
 	if arm_animation_player.current_animation != weapon.get_equipped_name() + "Reload":
