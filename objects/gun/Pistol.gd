@@ -20,8 +20,8 @@ func shoot():
 		line.scale = scale
 		animation_player.play("Shoot")
 		var viewport_size = get_viewport_rect().size
-		var recoil_position = Vector2(rand_range(-5.0, 5.0), rand_range(-10.0, -5.0))
-		recoil_position = get_viewport().get_mouse_position() + recoil_position.rotated(rotation)
+		var recoil_position = Vector2(rand_range(-5.0, 5.0), rand_range(-10.0, -5.0)) * global_scale
+		recoil_position = get_viewport().get_mouse_position() + recoil_position.rotated(global_rotation)
 		recoil_position = Vector2(clamp(recoil_position.x, 0.0, viewport_size.x), clamp(recoil_position.y, 0.0, viewport_size.y))
 		get_viewport().warp_mouse(recoil_position)
 
