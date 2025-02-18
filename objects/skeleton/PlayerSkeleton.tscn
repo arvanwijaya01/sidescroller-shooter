@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://objects/skeleton/PlayerSkeleton.gd" type="Script" id=1]
 [ext_resource path="res://sprites/skeleton/skeleton.png" type="Texture" id=2]
@@ -20,6 +20,12 @@ region = Rect2( 0, 64, 32, 32 )
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 4, 10 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 5, 10 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 2 )
@@ -44,6 +50,19 @@ region = Rect2( 32, 112, 32, 16 )
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="CapsuleShape2D" id=48]
+radius = 8.0
+height = 5.0
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 7, 6 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 5, 5 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 5, 8 )
 
 [sub_resource type="Animation" id=41]
 resource_name = "Climb"
@@ -3113,6 +3132,24 @@ __meta__ = {
 "_edit_bone_": true
 }
 
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/BackLeg/LowerLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/BackLeg/LowerLeg/KinematicBody2D"]
+position = Vector2( 0, -1 )
+shape = SubResource( 50 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/BackLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/BackLeg/KinematicBody2D"]
+position = Vector2( 1, -1 )
+shape = SubResource( 49 )
+
 [node name="FrontLeg" type="Sprite" parent="BottomTorso"]
 position = Vector2( -1, 6 )
 z_index = 1
@@ -3139,6 +3176,24 @@ texture = SubResource( 5 )
 __meta__ = {
 "_edit_bone_": true
 }
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/FrontLeg/LowerLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/FrontLeg/LowerLeg/KinematicBody2D"]
+position = Vector2( 0, -1 )
+shape = SubResource( 50 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/FrontLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/FrontLeg/KinematicBody2D"]
+position = Vector2( 1, -1 )
+shape = SubResource( 49 )
 
 [node name="MidTorso" type="Sprite" parent="BottomTorso"]
 texture = SubResource( 29 )
@@ -3200,6 +3255,15 @@ __meta__ = {
 "_edit_bone_": true
 }
 
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/MidTorso/TopTorso/HeadNode/Head"]
+position = Vector2( 0, -9 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/MidTorso/TopTorso/HeadNode/Head/KinematicBody2D"]
+position = Vector2( 1, -1 )
+shape = SubResource( 48 )
+
 [node name="FrontArmNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
 position = Vector2( 0, -9 )
 __meta__ = {
@@ -3230,6 +3294,30 @@ offset = Vector2( 0, 3 )
 __meta__ = {
 "_edit_bone_": true
 }
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -9 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/MidTorso/TopTorso/KinematicBody2D"]
+shape = SubResource( 47 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/MidTorso"]
+position = Vector2( 0, -9 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/MidTorso/KinematicBody2D"]
+shape = SubResource( 46 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso"]
+position = Vector2( -1, 3 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/KinematicBody2D"]
+shape = SubResource( 45 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Climb = SubResource( 41 )
@@ -3264,7 +3352,7 @@ anims/RunForward = SubResource( 20 )
 anims/Slide = SubResource( 34 )
 anims/WalkBackward = SubResource( 21 )
 anims/WalkForward = SubResource( 22 )
-blend_times = [ "AssaultRifleAim", "Crouch", 0.2, "AssaultRifleAim", "DodgeBackward", 0.2, "AssaultRifleAim", "DodgeForward", 0.2, "AssaultRifleAim", "Idle", 0.2, "AssaultRifleAim", "Jump", 0.2, "AssaultRifleAim", "PistolAim", 0.2, "AssaultRifleAim", "PistolReload", 0.2, "AssaultRifleAim", "RESET", 0.2, "AssaultRifleAim", "RunBackward", 0.2, "AssaultRifleAim", "RunForward", 0.2, "AssaultRifleAim", "Slide", 0.2, "AssaultRifleAim", "WalkBackward", 0.2, "AssaultRifleAim", "WalkForward", 0.2, "Climb", "AssaultRifleAim", 0.2, "Climb", "Crouch", 0.2, "Climb", "DodgeBackward", 0.2, "Climb", "DodgeForward", 0.2, "Climb", "Idle", 0.2, "Climb", "Jump", 0.2, "Climb", "PistolAim", 0.2, "Climb", "PistolReload", 0.2, "Climb", "RESET", 0.2, "Climb", "RunBackward", 0.2, "Climb", "RunForward", 0.2, "Climb", "Slide", 0.2, "Climb", "WalkBackward", 0.2, "Climb", "WalkForward", 0.2, "Crouch", "AssaultRifleAim", 0.2, "Crouch", "DodgeBackward", 0.2, "Crouch", "DodgeForward", 0.2, "Crouch", "Idle", 0.2, "Crouch", "Jump", 0.2, "Crouch", "PistolAim", 0.2, "Crouch", "PistolReload", 0.2, "Crouch", "RESET", 0.2, "Crouch", "RunBackward", 0.2, "Crouch", "RunForward", 0.2, "Crouch", "Slide", 0.2, "Crouch", "WalkBackward", 0.2, "Crouch", "WalkForward", 0.2, "DodgeBackward", "AssaultRifleAim", 0.2, "DodgeBackward", "Crouch", 0.2, "DodgeBackward", "DodgeForward", 0.2, "DodgeBackward", "Idle", 0.2, "DodgeBackward", "Jump", 0.2, "DodgeBackward", "PistolAim", 0.2, "DodgeBackward", "PistolReload", 0.2, "DodgeBackward", "RESET", 0.2, "DodgeBackward", "RunBackward", 0.2, "DodgeBackward", "RunForward", 0.2, "DodgeBackward", "Slide", 0.2, "DodgeBackward", "WalkBackward", 0.2, "DodgeBackward", "WalkForward", 0.2, "DodgeForward", "AssaultRifleAim", 0.2, "DodgeForward", "Crouch", 0.2, "DodgeForward", "DodgeBackward", 0.2, "DodgeForward", "Idle", 0.2, "DodgeForward", "Jump", 0.2, "DodgeForward", "PistolAim", 0.2, "DodgeForward", "PistolReload", 0.2, "DodgeForward", "RESET", 0.2, "DodgeForward", "RunBackward", 0.2, "DodgeForward", "RunForward", 0.2, "DodgeForward", "Slide", 0.2, "DodgeForward", "WalkBackward", 0.2, "DodgeForward", "WalkForward", 0.2, "Idle", "AssaultRifleAim", 0.2, "Idle", "Crouch", 0.2, "Idle", "DodgeBackward", 0.2, "Idle", "DodgeForward", 0.2, "Idle", "Jump", 0.2, "Idle", "PistolAim", 0.2, "Idle", "PistolReload", 0.2, "Idle", "RESET", 0.2, "Idle", "RunBackward", 0.2, "Idle", "RunForward", 0.2, "Idle", "Slide", 0.2, "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "Jump", "AssaultRifleAim", 0.2, "Jump", "Crouch", 0.2, "Jump", "DodgeBackward", 0.2, "Jump", "DodgeForward", 0.2, "Jump", "Idle", 0.2, "Jump", "PistolAim", 0.2, "Jump", "PistolReload", 0.2, "Jump", "RESET", 0.2, "Jump", "RunBackward", 0.2, "Jump", "RunForward", 0.2, "Jump", "Slide", 0.2, "Jump", "WalkBackward", 0.2, "Jump", "WalkForward", 0.2, "PistolAim", "AssaultRifleAim", 0.2, "PistolAim", "Crouch", 0.2, "PistolAim", "DodgeBackward", 0.2, "PistolAim", "DodgeForward", 0.2, "PistolAim", "Idle", 0.2, "PistolAim", "Jump", 0.2, "PistolAim", "PistolReload", 0.2, "PistolAim", "RESET", 0.2, "PistolAim", "RunBackward", 0.2, "PistolAim", "RunForward", 0.2, "PistolAim", "Slide", 0.2, "PistolAim", "WalkBackward", 0.2, "PistolAim", "WalkForward", 0.2, "PistolReload", "AssaultRifleAim", 0.2, "PistolReload", "Crouch", 0.2, "PistolReload", "DodgeBackward", 0.2, "PistolReload", "DodgeForward", 0.2, "PistolReload", "Idle", 0.2, "PistolReload", "Jump", 0.2, "PistolReload", "PistolAim", 0.2, "PistolReload", "RESET", 0.2, "PistolReload", "RunBackward", 0.2, "PistolReload", "RunForward", 0.2, "PistolReload", "Slide", 0.2, "PistolReload", "WalkBackward", 0.2, "PistolReload", "WalkForward", 0.2, "RESET", "AssaultRifleAim", 0.2, "RESET", "Crouch", 0.2, "RESET", "DodgeBackward", 0.2, "RESET", "DodgeForward", 0.2, "RESET", "Idle", 0.2, "RESET", "Jump", 0.2, "RESET", "PistolAim", 0.2, "RESET", "PistolReload", 0.2, "RESET", "RunBackward", 0.2, "RESET", "RunForward", 0.2, "RESET", "Slide", 0.2, "RESET", "WalkBackward", 0.2, "RESET", "WalkForward", 0.2, "RunBackward", "AssaultRifleAim", 0.2, "RunBackward", "Crouch", 0.2, "RunBackward", "DodgeBackward", 0.2, "RunBackward", "DodgeForward", 0.2, "RunBackward", "Idle", 0.2, "RunBackward", "Jump", 0.2, "RunBackward", "PistolAim", 0.2, "RunBackward", "PistolReload", 0.2, "RunBackward", "RESET", 0.2, "RunBackward", "RunForward", 0.2, "RunBackward", "Slide", 0.2, "RunBackward", "WalkBackward", 0.2, "RunBackward", "WalkForward", 0.2, "RunForward", "AssaultRifleAim", 0.2, "RunForward", "Crouch", 0.2, "RunForward", "DodgeBackward", 0.2, "RunForward", "DodgeForward", 0.2, "RunForward", "Idle", 0.2, "RunForward", "Jump", 0.2, "RunForward", "PistolAim", 0.2, "RunForward", "PistolReload", 0.2, "RunForward", "RESET", 0.2, "RunForward", "RunBackward", 0.2, "RunForward", "Slide", 0.2, "RunForward", "WalkBackward", 0.2, "RunForward", "WalkForward", 0.2, "Slide", "AssaultRifleAim", 0.2, "Slide", "Crouch", 0.2, "Slide", "DodgeBackward", 0.2, "Slide", "DodgeForward", 0.2, "Slide", "Idle", 0.2, "Slide", "Jump", 0.2, "Slide", "PistolAim", 0.2, "Slide", "PistolReload", 0.2, "Slide", "RESET", 0.2, "Slide", "RunBackward", 0.2, "Slide", "RunForward", 0.2, "Slide", "WalkBackward", 0.2, "Slide", "WalkForward", 0.2, "WalkBackward", "AssaultRifleAim", 0.2, "WalkBackward", "Crouch", 0.2, "WalkBackward", "DodgeBackward", 0.2, "WalkBackward", "DodgeForward", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "Jump", 0.2, "WalkBackward", "PistolAim", 0.2, "WalkBackward", "PistolReload", 0.2, "WalkBackward", "RESET", 0.2, "WalkBackward", "RunBackward", 0.2, "WalkBackward", "RunForward", 0.2, "WalkBackward", "Slide", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "AssaultRifleAim", 0.2, "WalkForward", "Crouch", 0.2, "WalkForward", "DodgeBackward", 0.2, "WalkForward", "DodgeForward", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "Jump", 0.2, "WalkForward", "PistolAim", 0.2, "WalkForward", "PistolReload", 0.2, "WalkForward", "RESET", 0.2, "WalkForward", "RunBackward", 0.2, "WalkForward", "RunForward", 0.2, "WalkForward", "Slide", 0.2, "WalkForward", "WalkBackward", 0.2 ]
+blend_times = [ "AssaultRifleAim", "AssaultRifleReload", 0.2, "AssaultRifleAim", "Crouch", 0.2, "AssaultRifleAim", "DodgeBackward", 0.2, "AssaultRifleAim", "DodgeForward", 0.2, "AssaultRifleAim", "Idle", 0.2, "AssaultRifleAim", "Jump", 0.2, "AssaultRifleAim", "PistolAim", 0.2, "AssaultRifleAim", "PistolReload", 0.2, "AssaultRifleAim", "RESET", 0.2, "AssaultRifleAim", "RunBackward", 0.2, "AssaultRifleAim", "RunForward", 0.2, "AssaultRifleAim", "Slide", 0.2, "AssaultRifleAim", "WalkBackward", 0.2, "AssaultRifleAim", "WalkForward", 0.2, "AssaultRifleReload", "AssaultRifleAim", 0.2, "AssaultRifleReload", "Crouch", 0.2, "AssaultRifleReload", "DodgeBackward", 0.2, "AssaultRifleReload", "DodgeForward", 0.2, "AssaultRifleReload", "Idle", 0.2, "AssaultRifleReload", "Jump", 0.2, "AssaultRifleReload", "PistolAim", 0.2, "AssaultRifleReload", "PistolReload", 0.2, "AssaultRifleReload", "RESET", 0.2, "AssaultRifleReload", "RunBackward", 0.2, "AssaultRifleReload", "RunForward", 0.2, "AssaultRifleReload", "Slide", 0.2, "AssaultRifleReload", "WalkBackward", 0.2, "AssaultRifleReload", "WalkForward", 0.2, "Climb", "AssaultRifleAim", 0.2, "Climb", "AssaultRifleReload", 0.2, "Climb", "Crouch", 0.2, "Climb", "DodgeBackward", 0.2, "Climb", "DodgeForward", 0.2, "Climb", "Idle", 0.2, "Climb", "Jump", 0.2, "Climb", "PistolAim", 0.2, "Climb", "PistolReload", 0.2, "Climb", "RESET", 0.2, "Climb", "RunBackward", 0.2, "Climb", "RunForward", 0.2, "Climb", "Slide", 0.2, "Climb", "WalkBackward", 0.2, "Climb", "WalkForward", 0.2, "Crouch", "AssaultRifleAim", 0.2, "Crouch", "AssaultRifleReload", 0.2, "Crouch", "DodgeBackward", 0.2, "Crouch", "DodgeForward", 0.2, "Crouch", "Idle", 0.2, "Crouch", "Jump", 0.2, "Crouch", "PistolAim", 0.2, "Crouch", "PistolReload", 0.2, "Crouch", "RESET", 0.2, "Crouch", "RunBackward", 0.2, "Crouch", "RunForward", 0.2, "Crouch", "Slide", 0.2, "Crouch", "WalkBackward", 0.2, "Crouch", "WalkForward", 0.2, "DodgeBackward", "AssaultRifleAim", 0.2, "DodgeBackward", "AssaultRifleReload", 0.2, "DodgeBackward", "Crouch", 0.2, "DodgeBackward", "DodgeForward", 0.2, "DodgeBackward", "Idle", 0.2, "DodgeBackward", "Jump", 0.2, "DodgeBackward", "PistolAim", 0.2, "DodgeBackward", "PistolReload", 0.2, "DodgeBackward", "RESET", 0.2, "DodgeBackward", "RunBackward", 0.2, "DodgeBackward", "RunForward", 0.2, "DodgeBackward", "Slide", 0.2, "DodgeBackward", "WalkBackward", 0.2, "DodgeBackward", "WalkForward", 0.2, "DodgeForward", "AssaultRifleAim", 0.2, "DodgeForward", "AssaultRifleReload", 0.2, "DodgeForward", "Crouch", 0.2, "DodgeForward", "DodgeBackward", 0.2, "DodgeForward", "Idle", 0.2, "DodgeForward", "Jump", 0.2, "DodgeForward", "PistolAim", 0.2, "DodgeForward", "PistolReload", 0.2, "DodgeForward", "RESET", 0.2, "DodgeForward", "RunBackward", 0.2, "DodgeForward", "RunForward", 0.2, "DodgeForward", "Slide", 0.2, "DodgeForward", "WalkBackward", 0.2, "DodgeForward", "WalkForward", 0.2, "Idle", "AssaultRifleAim", 0.2, "Idle", "AssaultRifleReload", 0.2, "Idle", "Crouch", 0.2, "Idle", "DodgeBackward", 0.2, "Idle", "DodgeForward", 0.2, "Idle", "Jump", 0.2, "Idle", "PistolAim", 0.2, "Idle", "PistolReload", 0.2, "Idle", "RESET", 0.2, "Idle", "RunBackward", 0.2, "Idle", "RunForward", 0.2, "Idle", "Slide", 0.2, "Idle", "WalkBackward", 0.2, "Idle", "WalkForward", 0.2, "Jump", "AssaultRifleAim", 0.2, "Jump", "AssaultRifleReload", 0.2, "Jump", "Crouch", 0.2, "Jump", "DodgeBackward", 0.2, "Jump", "DodgeForward", 0.2, "Jump", "Idle", 0.2, "Jump", "PistolAim", 0.2, "Jump", "PistolReload", 0.2, "Jump", "RESET", 0.2, "Jump", "RunBackward", 0.2, "Jump", "RunForward", 0.2, "Jump", "Slide", 0.2, "Jump", "WalkBackward", 0.2, "Jump", "WalkForward", 0.2, "PistolAim", "AssaultRifleAim", 0.2, "PistolAim", "AssaultRifleReload", 0.2, "PistolAim", "Crouch", 0.2, "PistolAim", "DodgeBackward", 0.2, "PistolAim", "DodgeForward", 0.2, "PistolAim", "Idle", 0.2, "PistolAim", "Jump", 0.2, "PistolAim", "PistolReload", 0.2, "PistolAim", "RESET", 0.2, "PistolAim", "RunBackward", 0.2, "PistolAim", "RunForward", 0.2, "PistolAim", "Slide", 0.2, "PistolAim", "WalkBackward", 0.2, "PistolAim", "WalkForward", 0.2, "PistolReload", "AssaultRifleAim", 0.2, "PistolReload", "AssaultRifleReload", 0.2, "PistolReload", "Crouch", 0.2, "PistolReload", "DodgeBackward", 0.2, "PistolReload", "DodgeForward", 0.2, "PistolReload", "Idle", 0.2, "PistolReload", "Jump", 0.2, "PistolReload", "PistolAim", 0.2, "PistolReload", "RESET", 0.2, "PistolReload", "RunBackward", 0.2, "PistolReload", "RunForward", 0.2, "PistolReload", "Slide", 0.2, "PistolReload", "WalkBackward", 0.2, "PistolReload", "WalkForward", 0.2, "RESET", "AssaultRifleAim", 0.2, "RESET", "AssaultRifleReload", 0.2, "RESET", "Crouch", 0.2, "RESET", "DodgeBackward", 0.2, "RESET", "DodgeForward", 0.2, "RESET", "Idle", 0.2, "RESET", "Jump", 0.2, "RESET", "PistolAim", 0.2, "RESET", "PistolReload", 0.2, "RESET", "RunBackward", 0.2, "RESET", "RunForward", 0.2, "RESET", "Slide", 0.2, "RESET", "WalkBackward", 0.2, "RESET", "WalkForward", 0.2, "RunBackward", "AssaultRifleAim", 0.2, "RunBackward", "AssaultRifleReload", 0.2, "RunBackward", "Crouch", 0.2, "RunBackward", "DodgeBackward", 0.2, "RunBackward", "DodgeForward", 0.2, "RunBackward", "Idle", 0.2, "RunBackward", "Jump", 0.2, "RunBackward", "PistolAim", 0.2, "RunBackward", "PistolReload", 0.2, "RunBackward", "RESET", 0.2, "RunBackward", "RunForward", 0.2, "RunBackward", "Slide", 0.2, "RunBackward", "WalkBackward", 0.2, "RunBackward", "WalkForward", 0.2, "RunForward", "AssaultRifleAim", 0.2, "RunForward", "AssaultRifleReload", 0.2, "RunForward", "Crouch", 0.2, "RunForward", "DodgeBackward", 0.2, "RunForward", "DodgeForward", 0.2, "RunForward", "Idle", 0.2, "RunForward", "Jump", 0.2, "RunForward", "PistolAim", 0.2, "RunForward", "PistolReload", 0.2, "RunForward", "RESET", 0.2, "RunForward", "RunBackward", 0.2, "RunForward", "Slide", 0.2, "RunForward", "WalkBackward", 0.2, "RunForward", "WalkForward", 0.2, "Slide", "AssaultRifleAim", 0.2, "Slide", "AssaultRifleReload", 0.2, "Slide", "Crouch", 0.2, "Slide", "DodgeBackward", 0.2, "Slide", "DodgeForward", 0.2, "Slide", "Idle", 0.2, "Slide", "Jump", 0.2, "Slide", "PistolAim", 0.2, "Slide", "PistolReload", 0.2, "Slide", "RESET", 0.2, "Slide", "RunBackward", 0.2, "Slide", "RunForward", 0.2, "Slide", "WalkBackward", 0.2, "Slide", "WalkForward", 0.2, "WalkBackward", "AssaultRifleAim", 0.2, "WalkBackward", "AssaultRifleReload", 0.2, "WalkBackward", "Crouch", 0.2, "WalkBackward", "DodgeBackward", 0.2, "WalkBackward", "DodgeForward", 0.2, "WalkBackward", "Idle", 0.2, "WalkBackward", "Jump", 0.2, "WalkBackward", "PistolAim", 0.2, "WalkBackward", "PistolReload", 0.2, "WalkBackward", "RESET", 0.2, "WalkBackward", "RunBackward", 0.2, "WalkBackward", "RunForward", 0.2, "WalkBackward", "Slide", 0.2, "WalkBackward", "WalkForward", 0.2, "WalkForward", "AssaultRifleAim", 0.2, "WalkForward", "AssaultRifleReload", 0.2, "WalkForward", "Crouch", 0.2, "WalkForward", "DodgeBackward", 0.2, "WalkForward", "DodgeForward", 0.2, "WalkForward", "Idle", 0.2, "WalkForward", "Jump", 0.2, "WalkForward", "PistolAim", 0.2, "WalkForward", "PistolReload", 0.2, "WalkForward", "RESET", 0.2, "WalkForward", "RunBackward", 0.2, "WalkForward", "RunForward", 0.2, "WalkForward", "Slide", 0.2, "WalkForward", "WalkBackward", 0.2 ]
 script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
