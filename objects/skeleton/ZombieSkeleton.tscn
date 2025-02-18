@@ -1,0 +1,294 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://sfx/footstep.wav" type="AudioStream" id=1]
+[ext_resource path="res://sprites/skeleton/skeleton.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 4, 10 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 5, 10 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 48, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 80, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 112, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="CapsuleShape2D" id=48]
+radius = 8.0
+height = 5.0
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 7, 6 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 5, 5 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 5, 8 )
+
+[node name="ZombieSkeleton" type="Node2D"]
+position = Vector2( 0, -4 )
+
+[node name="BottomTorso" type="Sprite" parent="."]
+texture = SubResource( 1 )
+offset = Vector2( 0, -1 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="BackLeg" type="Sprite" parent="BottomTorso"]
+show_behind_parent = true
+position = Vector2( -1, 6 )
+texture = SubResource( 3 )
+offset = Vector2( 1, 9 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="LowerLeg" type="Sprite" parent="BottomTorso/BackLeg"]
+show_behind_parent = true
+position = Vector2( 1, 14 )
+texture = SubResource( 4 )
+offset = Vector2( 0, 11 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Foot" type="Sprite" parent="BottomTorso/BackLeg/LowerLeg"]
+show_behind_parent = true
+position = Vector2( 0, 11 )
+texture = SubResource( 5 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/BackLeg/LowerLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/BackLeg/LowerLeg/KinematicBody2D"]
+position = Vector2( 0, -1 )
+shape = SubResource( 50 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/BackLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/BackLeg/KinematicBody2D"]
+position = Vector2( 1, -1 )
+shape = SubResource( 49 )
+
+[node name="MidTorso" type="Sprite" parent="BottomTorso"]
+texture = SubResource( 29 )
+offset = Vector2( 0, -2 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="TopTorso" type="Sprite" parent="BottomTorso/MidTorso"]
+position = Vector2( 0, -9 )
+texture = SubResource( 28 )
+offset = Vector2( 0, -9 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="BackArmNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -9 )
+z_index = -1
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="BackArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode"]
+show_behind_parent = true
+texture = SubResource( 7 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="LowerArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm"]
+show_behind_parent = true
+position = Vector2( -1, 10 )
+texture = SubResource( 6 )
+offset = Vector2( 1, 6 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Hand" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/BackArmNode/BackArm/LowerArm"]
+show_behind_parent = true
+position = Vector2( 1, 11 )
+texture = SubResource( 8 )
+offset = Vector2( 0, 3 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="HeadNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -15 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Head" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/HeadNode"]
+texture = SubResource( 2 )
+offset = Vector2( 0, -10 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/MidTorso/TopTorso/HeadNode/Head"]
+position = Vector2( 0, -9 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/MidTorso/TopTorso/HeadNode/Head/KinematicBody2D"]
+position = Vector2( 1, -1 )
+shape = SubResource( 48 )
+
+[node name="FrontArmNode" type="Node2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -9 )
+z_index = 1
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="FrontArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode"]
+texture = SubResource( 7 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="LowerArm" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm"]
+show_behind_parent = true
+position = Vector2( -1, 10 )
+texture = SubResource( 6 )
+offset = Vector2( 1, 6 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Hand" type="Sprite" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm"]
+show_behind_parent = true
+position = Vector2( 1, 11 )
+texture = SubResource( 8 )
+offset = Vector2( 0, 3 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/MidTorso/TopTorso"]
+position = Vector2( 0, -9 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/MidTorso/TopTorso/KinematicBody2D"]
+shape = SubResource( 47 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/MidTorso"]
+position = Vector2( 0, -9 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/MidTorso/KinematicBody2D"]
+shape = SubResource( 46 )
+
+[node name="FrontLeg" type="Sprite" parent="BottomTorso"]
+position = Vector2( -1, 6 )
+texture = SubResource( 3 )
+offset = Vector2( 1, 9 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="LowerLeg" type="Sprite" parent="BottomTorso/FrontLeg"]
+show_behind_parent = true
+position = Vector2( 1, 14 )
+texture = SubResource( 4 )
+offset = Vector2( 0, 11 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Foot" type="Sprite" parent="BottomTorso/FrontLeg/LowerLeg"]
+show_behind_parent = true
+position = Vector2( 0, 11 )
+texture = SubResource( 5 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/FrontLeg/LowerLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/FrontLeg/LowerLeg/KinematicBody2D"]
+position = Vector2( 0, -1 )
+shape = SubResource( 50 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/FrontLeg"]
+position = Vector2( 0, 6 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/FrontLeg/KinematicBody2D"]
+position = Vector2( 1, -1 )
+shape = SubResource( 49 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso"]
+position = Vector2( -1, 3 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso/KinematicBody2D"]
+shape = SubResource( 45 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 46 )
+stream = ExtResource( 1 )
+volume_db = -20.0
+pitch_scale = 2.0

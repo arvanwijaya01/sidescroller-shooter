@@ -10,8 +10,8 @@
 [sub_resource type="CapsuleShape2D" id=28]
 height = 32.0
 
-[node name="Player" type="KinematicBody2D"]
-collision_layer = 2
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
+collision_layer = 0
 script = ExtResource( 1 )
 
 [node name="PlayerSkeleton" parent="." instance=ExtResource( 2 )]
