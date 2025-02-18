@@ -1,6 +1,7 @@
 extends Node2D
 
 export var max_ammo = 30
+export var damage = 5
 var ammo_in_magazine = 30
 onready var animation_player = $AnimationPlayer
 onready var raycast = $RayCast2D
@@ -18,6 +19,10 @@ func shoot():
 		line.global_rotation = global_rotation
 		line.position = raycast.global_position
 		line.scale = scale
+		var collider = raycast.get_collider()
+		if collider != null:
+			if collider.collision_layer & 4:
+				collider.apply_damage(damage)
 		animation_player.play("Shoot")
 		var viewport_size = get_viewport_rect().size
 		var recoil_position = Vector2(rand_range(-5.0, 5.0), rand_range(-10.0, -5.0)) * global_scale

@@ -16,3 +16,5 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -9 )
 shape = SubResource( 51 )
+
+[connection signal="died" from="ZombieSkeleton" to="." method="_on_ZombieSkeleton_died"]
