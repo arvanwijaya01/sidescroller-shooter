@@ -3223,6 +3223,9 @@ __meta__ = {
 "_edit_bone_": true
 }
 
+[node name="Equip" type="RemoteTransform2D" parent="BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand"]
+rotation = 1.5708
+
 [node name="KinematicBody2D" type="KinematicBody2D" parent="BottomTorso/MidTorso/TopTorso"]
 position = Vector2( 0, -9 )
 collision_layer = 2

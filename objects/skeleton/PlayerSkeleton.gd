@@ -13,6 +13,7 @@ onready var mid_torso = $BottomTorso/MidTorso
 onready var bottom_torso = $BottomTorso
 onready var tween = $Tween
 onready var footstep_audio = $FootstepAudio
+onready var front_arm_equip = $BottomTorso/MidTorso/TopTorso/FrontArmNode/FrontArm/LowerArm/Hand/Equip
 
 func _physics_process(_delta):
 	if aiming_is_active:
@@ -38,9 +39,4 @@ func set_aiming_is_active(is_active : bool):
 	aiming_is_active = is_active
 
 func attach_to_front_arm(obj:Node2D):
-	obj.global_position = front_hand.global_position
-	obj.global_rotation = front_hand.global_rotation + deg2rad(90.0)
-
-func attach_to_back_arm(obj:Node2D):
-	obj.global_position = back_hand.global_position
-	obj.global_rotation = back_hand.global_rotation + deg2rad(90.0)
+	front_arm_equip.remote_path = front_arm_equip.get_path_to(obj)

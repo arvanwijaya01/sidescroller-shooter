@@ -701,6 +701,7 @@ shape = SubResource( 45 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 51 )
 anims/RESET = SubResource( 52 )
+blend_times = [ "Idle", "RESET", 0.2, "RESET", "Idle", 0.2 ]
 script = ExtResource( 5 )
 
 [node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]

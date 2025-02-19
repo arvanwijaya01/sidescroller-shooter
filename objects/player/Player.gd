@@ -13,6 +13,8 @@ onready var uncrouch_detection = $UncrouchDetection
 onready var climb_detection = $ClimbDetection
 onready var tween = $Tween
 
+func _ready():
+	skeleton.attach_to_front_arm(weapon)
 
 func _physics_process(_delta):
 	# Get mouse position and face toward it
@@ -47,18 +49,14 @@ func orientation():
 		mouse_position = get_global_mouse_position()
 		if mouse_position.x > position.x:
 			skeleton.scale = Vector2(1.0, 1.0)
-			weapon.scale = Vector2(1.0, 1.0)
 			climb_detection.scale = Vector2(1.0, 1.0)
 		elif mouse_position.x < position.x:
 			skeleton.scale = Vector2(-1.0, 1.0)
-			weapon.scale = Vector2(-1.0, 1.0)
 			climb_detection.scale = Vector2(-1.0, 1.0)
 
 func change_equip():
 	if weapon.equipped == weapon.Equip.None:
 		skeleton.aiming_is_active = false
-	else:
-		skeleton.attach_to_front_arm(weapon)
 	if Input.is_action_just_pressed("unequip") and weapon.equipped != weapon.Equip.None:
 		arm_animation_player.play(animation_player.current_animation)
 		arm_animation_player.seek(animation_player.current_animation_position)
