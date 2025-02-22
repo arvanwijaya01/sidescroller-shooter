@@ -1,0 +1,362 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://objects/skeleton/Joint.gd" type="Script" id=1]
+[ext_resource path="res://sprites/skeleton/skeleton.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 112, 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 3.5, 3.5 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 80, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 2.5, 6.5 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 48, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 3.5, 7 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 6.5, 2.5 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 3.5, 8 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 5, 10.5 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 96, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 5, 8 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 4.5, 6 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 6, 8 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="CapsuleShape2D" id=20]
+radius = 9.0
+height = 4.0
+
+[node name="NewSkeleton" type="Node2D"]
+
+[node name="BackHand" type="RigidBody2D" parent="."]
+position = Vector2( 0, 3 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="BackHand"]
+texture = SubResource( 12 )
+offset = Vector2( 0, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackHand"]
+position = Vector2( 0.5, 2.5 )
+shape = SubResource( 16 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="BackHand"]
+node_a = NodePath("..")
+node_b = NodePath("../../BackLowerArm")
+script = ExtResource( 1 )
+min_angle = -30.0
+max_angle = 30.0
+
+[node name="BackLowerArm" type="RigidBody2D" parent="."]
+position = Vector2( -1, -8 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="BackLowerArm"]
+texture = SubResource( 11 )
+offset = Vector2( 1, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackLowerArm"]
+position = Vector2( 0.5, 4.5 )
+shape = SubResource( 14 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="BackLowerArm"]
+node_a = NodePath("..")
+node_b = NodePath("../../BackArm")
+script = ExtResource( 1 )
+min_angle = -120.0
+max_angle = 0.0
+
+[node name="BackArm" type="RigidBody2D" parent="."]
+position = Vector2( 0, -18 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="BackArm"]
+texture = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackArm"]
+position = Vector2( -0.5, 3 )
+shape = SubResource( 15 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="BackArm"]
+node_a = NodePath("..")
+node_b = NodePath("../../TopTorso")
+
+[node name="BackFoot" type="RigidBody2D" parent="."]
+position = Vector2( 0, 31 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="BackFoot"]
+texture = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackFoot"]
+position = Vector2( 3.5, 3.5 )
+shape = SubResource( 19 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="BackFoot"]
+node_a = NodePath("..")
+node_b = NodePath("../../BackLowerLeg")
+script = ExtResource( 1 )
+min_angle = -15.0
+max_angle = 15.0
+
+[node name="BackLowerLeg" type="RigidBody2D" parent="."]
+position = Vector2( 0, 20 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="BackLowerLeg"]
+texture = SubResource( 4 )
+offset = Vector2( 0, 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackLowerLeg"]
+visible = false
+position = Vector2( 0.5, 4 )
+shape = SubResource( 18 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="BackLowerLeg"]
+node_a = NodePath("..")
+node_b = NodePath("../../BackLeg")
+script = ExtResource( 1 )
+max_angle = 120.0
+
+[node name="BackLeg" type="RigidBody2D" parent="."]
+position = Vector2( -1, 6 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="BackLeg"]
+texture = SubResource( 3 )
+offset = Vector2( 1, 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackLeg"]
+position = Vector2( 1, 5.5 )
+shape = SubResource( 17 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="BackLeg"]
+node_a = NodePath("..")
+node_b = NodePath("../../BottomTorso")
+script = ExtResource( 1 )
+min_angle = -90.0
+max_angle = 30.0
+
+[node name="BottomTorso" type="RigidBody2D" parent="."]
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="BottomTorso"]
+texture = SubResource( 2 )
+offset = Vector2( 0, -1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomTorso"]
+position = Vector2( -1, 3 )
+shape = SubResource( 23 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="BottomTorso"]
+node_a = NodePath("../../MidTorso")
+node_b = NodePath("..")
+script = ExtResource( 1 )
+min_angle = -30.0
+max_angle = 60.0
+
+[node name="MidTorso" type="RigidBody2D" parent="."]
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="MidTorso"]
+texture = SubResource( 8 )
+offset = Vector2( 0, -2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidTorso"]
+position = Vector2( 0.5, -7 )
+shape = SubResource( 22 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="MidTorso"]
+position = Vector2( 0, -9 )
+node_a = NodePath("../../TopTorso")
+node_b = NodePath("..")
+script = ExtResource( 1 )
+min_angle = -30.0
+max_angle = 60.0
+
+[node name="TopTorso" type="RigidBody2D" parent="."]
+position = Vector2( 0, -9 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="TopTorso"]
+texture = SubResource( 9 )
+offset = Vector2( 0, -9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopTorso"]
+position = Vector2( 0, -8 )
+shape = SubResource( 21 )
+
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2( 0, -24 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="Head"]
+texture = SubResource( 13 )
+offset = Vector2( 0, -10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2( 0, -10 )
+shape = SubResource( 20 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Head"]
+node_a = NodePath("..")
+node_b = NodePath("../../TopTorso")
+script = ExtResource( 1 )
+min_angle = -60.0
+max_angle = 60.0
+
+[node name="FrontFoot" type="RigidBody2D" parent="."]
+position = Vector2( 0, 31 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="FrontFoot"]
+texture = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontFoot"]
+position = Vector2( 3.5, 3.5 )
+shape = SubResource( 19 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FrontFoot"]
+node_a = NodePath("..")
+node_b = NodePath("../../FrontLowerLeg")
+script = ExtResource( 1 )
+min_angle = -15.0
+max_angle = 15.0
+
+[node name="FrontLowerLeg" type="RigidBody2D" parent="."]
+position = Vector2( 0, 20 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="FrontLowerLeg"]
+texture = SubResource( 4 )
+offset = Vector2( 0, 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontLowerLeg"]
+position = Vector2( 0.5, 4 )
+shape = SubResource( 18 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FrontLowerLeg"]
+node_a = NodePath("..")
+node_b = NodePath("../../FrontLeg")
+script = ExtResource( 1 )
+max_angle = 120.0
+
+[node name="FrontLeg" type="RigidBody2D" parent="."]
+position = Vector2( -1, 6 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="FrontLeg"]
+texture = SubResource( 3 )
+offset = Vector2( 1, 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontLeg"]
+position = Vector2( 1, 5.5 )
+shape = SubResource( 17 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FrontLeg"]
+node_a = NodePath("..")
+node_b = NodePath("../../BottomTorso")
+script = ExtResource( 1 )
+min_angle = -90.0
+max_angle = 30.0
+
+[node name="FrontHand" type="RigidBody2D" parent="."]
+position = Vector2( 0, 3 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="FrontHand"]
+texture = SubResource( 12 )
+offset = Vector2( 0, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontHand"]
+position = Vector2( 0.5, 2.5 )
+shape = SubResource( 16 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FrontHand"]
+node_a = NodePath("..")
+node_b = NodePath("../../FrontLowerArm")
+script = ExtResource( 1 )
+min_angle = -30.0
+max_angle = 30.0
+
+[node name="FrontLowerArm" type="RigidBody2D" parent="."]
+position = Vector2( -1, -8 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="FrontLowerArm"]
+texture = SubResource( 11 )
+offset = Vector2( 1, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontLowerArm"]
+position = Vector2( 0.5, 4.5 )
+shape = SubResource( 14 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FrontLowerArm"]
+node_a = NodePath("..")
+node_b = NodePath("../../FrontArm")
+script = ExtResource( 1 )
+min_angle = -120.0
+max_angle = 0.0
+
+[node name="FrontArm" type="RigidBody2D" parent="."]
+position = Vector2( 0, -18 )
+collision_layer = 0
+
+[node name="Sprite" type="Sprite" parent="FrontArm"]
+texture = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArm"]
+position = Vector2( -0.5, 3 )
+shape = SubResource( 15 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FrontArm"]
+node_a = NodePath("..")
+node_b = NodePath("../../TopTorso")
