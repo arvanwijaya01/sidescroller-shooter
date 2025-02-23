@@ -7,12 +7,14 @@ var alert = false
 onready var skeleton = $ZombieSkeleton
 onready var animation_player = $ZombieSkeleton/AnimationPlayer
 onready var line_of_sight = $LineOfSight
+onready var climb_detection = $ClimbDetection
+onready var tween = $Tween
 
 func _ready():
 	randomize()
 	animation_player.play("Idle")
 	animation_player.seek(rand_range(0.0, 1.0))
-	animation_player.set_speed_scale(rand_range(1.0, 2.0))
+#	animation_player.set_speed_scale(rand_range(1.0, 2.0))
 	player = get_tree().get_nodes_in_group("Player")[0] if get_tree().get_nodes_in_group("Player").size() > 0 else null
 
 func _physics_process(_delta):
@@ -21,14 +23,35 @@ func _physics_process(_delta):
 		if line_of_sight.is_colliding():
 			alert = true
 		if alert:
+			if climb():
+				return
 			animation_player.play("Walk")
 			var target_dir = 1 if player.global_position.x > global_position.x else -1
 			skeleton.scale.x = target_dir
+			climb_detection.scale.x = target_dir
 			move_vec.x = clamp(move_vec.x + target_dir * 15, -28 * animation_player.playback_speed, 28 * animation_player.playback_speed)
 	move_vec = move_and_slide(move_vec, Vector2.UP)
 	move_vec.y += 10
 	if is_dead:
 		queue_free()
 
+func climb():
+	if skeleton.is_climbing:
+		return true
+	else:
+		if climb_detection.can_climb:
+			position = climb_detection.corner_position + Vector2(skeleton.scale.x * -14.0, 33)
+			tween.interpolate_property(self, "position",
+					position, climb_detection.corner_position + Vector2(skeleton.scale.x * 14.0, -33), 0.6,
+					Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			tween.start()
+			move_vec = Vector2.ZERO
+			animation_player.play("Climb")
+			return true
+	return false
+
 func _on_ZombieSkeleton_died():
 	is_dead = true
+
+func _on_ZombieSkeleton_hurt():
+	alert = true

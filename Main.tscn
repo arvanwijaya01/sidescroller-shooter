@@ -33,7 +33,7 @@ points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 112, 80 )
+position = Vector2( -144, 80 )
 
 [node name="Zombie" parent="." instance=ExtResource( 3 )]
 

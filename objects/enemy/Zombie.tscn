@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/enemy/Zombie.gd" type="Script" id=1]
 [ext_resource path="res://objects/skeleton/ZombieSkeleton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/enemy/ZombieClimbDetection.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=51]
 height = 64.0
@@ -22,4 +23,24 @@ enabled = true
 cast_to = Vector2( 128, 0 )
 collision_mask = 2
 
+[node name="ClimbDetection" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="TopRayCast" type="RayCast2D" parent="ClimbDetection"]
+position = Vector2( 0, -40 )
+enabled = true
+cast_to = Vector2( 32, 0 )
+
+[node name="MidRayCast" type="RayCast2D" parent="ClimbDetection"]
+position = Vector2( 32, -40 )
+enabled = true
+cast_to = Vector2( 0, 40 )
+
+[node name="BottomRayCast" type="RayCast2D" parent="ClimbDetection"]
+enabled = true
+cast_to = Vector2( 16, 0 )
+
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="died" from="ZombieSkeleton" to="." method="_on_ZombieSkeleton_died"]
+[connection signal="hurt" from="ZombieSkeleton" to="." method="_on_ZombieSkeleton_hurt"]
