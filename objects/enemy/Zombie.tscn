@@ -17,4 +17,9 @@ script = ExtResource( 1 )
 position = Vector2( 0, -9 )
 shape = SubResource( 51 )
 
+[node name="LineOfSight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 128, 0 )
+collision_mask = 2
+
 [connection signal="died" from="ZombieSkeleton" to="." method="_on_ZombieSkeleton_died"]
