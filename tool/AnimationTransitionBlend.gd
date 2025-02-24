@@ -12,7 +12,10 @@ func _ready():
 	for anim in get_animation_list():
 		for each in get_animation_list():
 			if each != anim and each != "Climb":
-				set_blend_time(anim, each, 0.2)
+				if each.find("Hurt") != -1:
+					set_blend_time(anim, each, 0.1)
+				else:
+					set_blend_time(anim, each, 0.2)
 			else:
 				set_blend_time(anim, each, 0.0)
 

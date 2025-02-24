@@ -25,6 +25,8 @@ func _physics_process(_delta):
 		if alert:
 			if climb():
 				return
+			if skeleton.is_hurting:
+				return
 			animation_player.play("Walk")
 			var target_dir = 1 if player.global_position.x > global_position.x else -1
 			skeleton.scale.x = target_dir
@@ -53,5 +55,12 @@ func climb():
 func _on_ZombieSkeleton_died():
 	is_dead = true
 
-func _on_ZombieSkeleton_hurt():
+func _on_ZombieSkeleton_hurt(part):
 	alert = true
+	if !skeleton.is_climbing and skeleton.health > 0:
+		if part == "Leg":
+			skeleton.is_hurting = true
+			animation_player.play("LegHurt")
+		else:
+			skeleton.is_hurting = true
+			animation_player.play("Hurt")
