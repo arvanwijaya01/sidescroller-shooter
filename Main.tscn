@@ -40,6 +40,12 @@ position = Vector2( -144, 80 )
 [node name="Zombie2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 200, 56 )
 
+[node name="Zombie3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296, 56 )
+
+[node name="Zombie4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264, 56 )
+
 [node name="Walls" type="TileMap" parent="."]
 tile_set = SubResource( 53 )
 cell_size = Vector2( 48, 48 )
